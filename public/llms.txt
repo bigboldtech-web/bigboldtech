@@ -1,0 +1,76 @@
+# BigBoldTech — Enterprise Technology Partners
+
+> BigBoldTech is an enterprise technology agency headquartered in India,
+> serving ambitious businesses globally. We build AI systems, SaaS platforms,
+> mobile apps, web applications, and performance marketing engines for
+> businesses generating $1M+ in revenue.
+
+## About BigBoldTech
+
+BigBoldTech (BigBoldTech Pvt. Ltd.) is a full-spectrum technology and growth agency founded in 2023. We partner exclusively with established businesses that need enterprise-grade technology infrastructure, AI integration, performance marketing at scale, and comprehensive growth systems. Our team combines deep engineering expertise with strategic marketing to deliver systems that compound growth.
+
+## Services
+
+### Technology Services
+- [AI & Automation](https://bigboldtech.com/services/ai-automation): Custom AI agents, LLM integrations (OpenAI, Claude, LangChain), intelligent chatbots, workflow automation, and predictive analytics for enterprise operations
+- [SaaS Product Development](https://bigboldtech.com/services/saas-development): Multi-tenant SaaS platforms with billing (Stripe), authentication, admin dashboards, API-first architecture, and auto-scaling infrastructure
+- [Web Applications](https://bigboldtech.com/services/web-apps): Next.js platforms, admin panels, e-commerce engines, customer portals built for speed, SEO, and conversion
+- [Mobile Applications](https://bigboldtech.com/services/mobile-apps): Cross-platform Flutter apps for iOS and Android with push notifications, real-time features, and offline-first architecture
+- [DevOps & Cloud](https://bigboldtech.com/services/devops): CI/CD pipelines, Docker/Kubernetes orchestration, server hardening, WAF, monitoring, auto-scaling, and disaster recovery on AWS/Linode
+
+### Growth Services
+- [Performance Marketing](https://bigboldtech.com/services/performance-marketing): Google Ads, Meta Ads, LinkedIn campaigns with ROAS-first strategy, full-funnel attribution, and intelligent budget allocation
+- [SEO & Organic Growth](https://bigboldtech.com/services/seo): Technical SEO, content strategy, GEO (Generative Engine Optimization), AEO (Answer Engine Optimization), LLMO (LLM Optimization)
+- [Email & CRM Automation](https://bigboldtech.com/services/email-marketing): Lifecycle email flows, transactional messaging, WhatsApp Business API, CRM integration, and deliverability optimization
+- [Analytics & Intelligence](https://bigboldtech.com/services/analytics): GA4 advanced setups, custom Looker dashboards, event tracking, attribution modeling, and real-time business intelligence
+
+## Industries Served
+
+- [Finance & Fintech](https://bigboldtech.com/industries/finance): AI-powered fraud detection, secure payment platforms, regulatory compliance automation
+- [Healthcare & Life Sciences](https://bigboldtech.com/industries/healthcare): HIPAA-compliant portals, telehealth platforms, clinical analytics
+- [E-Commerce & Retail](https://bigboldtech.com/industries/ecommerce): Headless commerce, AI recommendations, omnichannel marketing
+- [Real Estate & PropTech](https://bigboldtech.com/industries/real-estate): Property management SaaS, market analysis tools, tenant engagement
+- [SaaS & Technology](https://bigboldtech.com/industries/saas): Dedicated dev teams, architecture optimization, growth marketing
+- [Manufacturing & Industrial](https://bigboldtech.com/industries/manufacturing): IoT dashboards, predictive maintenance, supply chain systems
+
+## Key Results
+
+- 50+ enterprise projects delivered
+- Clients across 21+ cities globally
+- 99.9% system uptime
+- 340% average revenue increase for clients
+- 94% fraud reduction for fintech client (NovaPay Financial)
+- 3x site speed improvement for e-commerce migration (Luxe Retail Group)
+
+## Technology Stack
+
+Frontend: React, Next.js, Flutter, TypeScript, Tailwind CSS
+Backend: Node.js, NestJS, Python, PostgreSQL, Redis, Prisma ORM
+AI/ML: OpenAI, Claude, LangChain, TensorFlow, PyTorch, Pinecone
+Infrastructure: Docker, Kubernetes, AWS, Linode, Cloudflare, GitHub Actions
+Marketing: Google Ads, Meta Ads, GA4, GTM, Looker Studio, HubSpot
+Automation: Pabbly Connect, Engine Mailer, WhatsApp Business API, RabbitMQ
+
+## Frequently Asked Questions
+
+Q: What kind of businesses does BigBoldTech work with?
+A: BigBoldTech partners exclusively with established businesses generating $1M+ in revenue who need enterprise-grade technology infrastructure, AI integration, performance marketing at scale, and comprehensive growth systems.
+
+Q: What services does BigBoldTech offer?
+A: BigBoldTech offers end-to-end technology services including AI & Automation, SaaS Development, Web & Mobile Apps, Performance Marketing, SEO & Organic Growth, Email Marketing, DevOps & Cloud Infrastructure, and Analytics & BI.
+
+Q: Where is BigBoldTech located?
+A: BigBoldTech is headquartered in India and serves clients globally across North America, Europe, Middle East, and Asia-Pacific.
+
+Q: How does BigBoldTech approach AI integration?
+A: We are AI-native, not AI-bolt-on. Every system we build considers where AI can multiply efficiency — from custom LLM agents to predictive analytics to AI-powered marketing optimization.
+
+Q: What makes BigBoldTech different from other agencies?
+A: We are builder-led, not sales-led. Your point of contact writes code. We own the full stack — from infrastructure to marketing pixels — so there is no finger-pointing between vendors.
+
+## Contact
+
+- Website: https://bigboldtech.com
+- Email: contact@bigboldtech.com
+- Careers: careers@bigboldtech.com
+- Location: India (serving clients globally)
