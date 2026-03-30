@@ -12,12 +12,21 @@ export function Hero() {
             </div>
             <h1>We Engineer<br /><span className="glow">Technology That<br />Scales Empires</span></h1>
             <p className="hero-desc">Enterprise-grade AI systems, SaaS platforms, mobile apps, and performance marketing — built for businesses doing $1M+ that refuse to settle for average technology.</p>
+            <div className="hero-platforms">
+              <span className="platform-tag">AI &amp; Automation</span>
+              <span className="platform-tag">SaaS</span>
+              <span className="platform-tag">SEO / GEO / AEO</span>
+              <span className="platform-tag">Performance Ads</span>
+            </div>
             <div className="hero-btns">
               <Link href="/contact" className="btn-glow">
                 Book Discovery Call
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
               </Link>
-              <a href="#services" className="btn-ghost">Explore Capabilities</a>
+              <a href="#services" className="btn-ghost">
+                Explore Capabilities
+                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+              </a>
             </div>
           </div>
           <div className="hero-visual">
@@ -43,7 +52,7 @@ export function Hero() {
             <div className="stats-bar">
               <div className="stat-chip"><div className="stat-val">50+</div><div className="stat-lbl">Projects</div></div>
               <div className="stat-chip"><div className="stat-val">21+</div><div className="stat-lbl">Cities</div></div>
-              <div className="stat-chip"><div className="stat-val">5K+</div><div className="stat-lbl">Orders/mo</div></div>
+              <div className="stat-chip"><div className="stat-val">9.2x</div><div className="stat-lbl">Avg ROAS</div></div>
               <div className="stat-chip"><div className="stat-val">99.9%</div><div className="stat-lbl">Uptime</div></div>
             </div>
           </div>
