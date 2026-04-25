@@ -199,14 +199,14 @@ function OrbitingNode({ color, speed, radius, phase, size = 0.045 }: { color: st
 }
 
 function OrbitRing({ activeIndex }: { activeIndex: number }) {
-  const ref = useRef<THREE.Line>(null)
+  const ref = useRef<THREE.LineLoop>(null)
   const matRef = useRef<THREE.LineBasicMaterial>(null)
   const targetColor = useRef(new THREE.Color(FEATURE_PRESETS[0].halo))
 
   const points = useMemo(() => {
     const arr: THREE.Vector3[] = []
     const segs = 96
-    for (let i = 0; i <= segs; i++) {
+    for (let i = 0; i < segs; i++) {
       const a = (i / segs) * Math.PI * 2
       arr.push(new THREE.Vector3(Math.cos(a) * 2.4, 0, Math.sin(a) * 2.4))
     }
@@ -227,7 +227,7 @@ function OrbitRing({ activeIndex }: { activeIndex: number }) {
   })
 
   return (
-    <line ref={ref} geometry={points}>
+    <lineLoop ref={ref} geometry={points}>
       <lineBasicMaterial
         ref={matRef}
         color={FEATURE_PRESETS[0].halo}
@@ -236,7 +236,7 @@ function OrbitRing({ activeIndex }: { activeIndex: number }) {
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
-    </line>
+    </lineLoop>
   )
 }
 
