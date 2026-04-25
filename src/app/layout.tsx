@@ -1,29 +1,49 @@
 import type { Metadata } from 'next'
-import { dmSans, plusJakarta, inter, ibmPlexMono } from '@/lib/fonts'
+import {
+  dmSans,
+  plusJakarta,
+  inter,
+  ibmPlexMono,
+  fraunces,
+  bricolage,
+  schibsted,
+  instrumentSerif,
+  jetbrainsMono,
+} from '@/lib/fonts'
 import { SITE_CONFIG } from '@/lib/constants'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
+import { HeaderV4 } from '@/components/v4/Header'
+import { FooterV4 } from '@/components/v4/Footer'
+import { SmoothScroll } from '@/components/v4/SmoothScroll'
+import { Cursor } from '@/components/v4/Cursor'
+import { ScrollProgress } from '@/components/v4/ScrollProgress'
+import { SectionIndicator } from '@/components/v4/SectionIndicator'
+import { HudChip } from '@/components/v4/HudChip'
+import { AmbientField } from '@/components/v4/AmbientField'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { buildOrganizationSchema, buildWebSiteSchema, buildLocalBusinessSchema } from '@/lib/schema'
-import { ParticleCanvas } from '@/components/effects/ParticleCanvas'
-import { ScrollReveal } from '@/components/effects/ScrollReveal'
 import '@/styles/globals.css'
+import '@/styles/v4.css'
+import '@/styles/v4-fx.css'
+import '@/styles/v4-pages.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: 'BigBoldTech — Enterprise Technology Partners | AI, Apps, SaaS, Marketing',
-    template: '%s | BigBoldTech',
+    default: 'Big Bold Tech — AI-native software, built with conviction',
+    template: '%s | Big Bold Tech',
   },
-  description: SITE_CONFIG.description,
+  description:
+    'AI-native product studio + venture lab. We design and ship software for the operators, founders, and teams shaping what comes next.',
   keywords: [
-    'enterprise technology agency',
-    'AI development company',
-    'SaaS development',
-    'custom app development',
-    'performance marketing agency',
-    'SEO agency India',
-    'digital transformation partner',
+    'AI-native product studio',
+    'AI agents for SMB',
+    'product venture lab India',
+    'Cashkr',
+    'Workwrk',
+    'ManagedAd',
+    'Suprfly',
+    'SwayMaps',
+    'Big Bold Teams',
   ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
@@ -32,13 +52,11 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: 'BigBoldTech — Enterprise Technology Partners',
-    description: 'We build the technology backbone for businesses that think big. AI, Apps, SaaS, Marketing & Growth.',
+    title: 'Big Bold Tech — AI-native software, built with conviction',
+    description:
+      'A product studio + venture lab. AI agents, SaaS, devtools — built decisively, shipped relentlessly.',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'BigBoldTech — Enterprise Technology Partners',
-  },
+  twitter: { card: 'summary_large_image', title: 'Big Bold Tech' },
   robots: {
     index: true,
     follow: true,
@@ -60,17 +78,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${plusJakarta.variable} ${inter.variable} ${ibmPlexMono.variable}`}
+      className={`${dmSans.variable} ${plusJakarta.variable} ${inter.variable} ${ibmPlexMono.variable} ${fraunces.variable} ${bricolage.variable} ${schibsted.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
     >
-      <body>
-        <ParticleCanvas />
+      <body data-theme="v4">
+        <AmbientField />
+        <SmoothScroll />
+        <Cursor />
+        <ScrollProgress />
+        <SectionIndicator />
+        <HudChip />
         <JsonLd data={buildOrganizationSchema()} />
         <JsonLd data={buildWebSiteSchema()} />
         <JsonLd data={buildLocalBusinessSchema()} />
-        <Header />
+        <HeaderV4 />
         <main>{children}</main>
-        <Footer />
-        <ScrollReveal />
+        <FooterV4 />
       </body>
     </html>
   )

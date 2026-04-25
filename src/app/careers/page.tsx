@@ -1,73 +1,78 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
+import { PageHero } from '@/components/v4/PageHero'
+import { Reveal } from '@/components/v4/Reveal'
 
 export const metadata: Metadata = {
-  title: 'Careers',
-  description: 'Join BigBoldTech. We are looking for builders, thinkers, and doers who want to create enterprise technology that matters.',
+  title: 'Careers — Build with us',
+  description:
+    'Big Bold Tech is hiring senior engineers, designers, and operators who want to ship AI-native software with conviction.',
 }
+
+const principles = [
+  { num: '01', title: 'Real impact, every cycle', body: 'No legacy babysitting. Every quarter you ship a new system that moves a real metric for a real operator.' },
+  { num: '02', title: 'Modern stack, opinionated', body: 'Next.js, R3F, Flutter, Postgres, Cloud-native. We use the best tools for the problem, not the safe ones.' },
+  { num: '03', title: 'Remote-first, async-default', body: 'Mumbai · Bengaluru · Kathmandu hubs. Output over hours. Documentation as part of the job.' },
+  { num: '04', title: 'Senior teams only', body: 'No staffing churn. The person who scopes your project ships your project.' },
+]
 
 export default function CareersPage() {
   return (
-    <section className="page-hero">
-      <div className="wrap">
-        <div className="reveal">
-          <Breadcrumbs items={[{ label: 'Careers', href: '/careers' }]} />
-          <div className="sec-label">Careers</div>
-          <h1 className="sec-title">Build With Us</h1>
-          <p className="sec-sub">We&apos;re always looking for exceptional engineers, designers, and marketers who want to work on ambitious projects with real impact.</p>
-        </div>
+    <>
+      <PageHero
+        eyebrow="Careers"
+        crumbs={[{ label: 'Careers', href: '/careers' }]}
+        title={
+          <>
+            Build with <span className="v4-italic">us.</span>
+          </>
+        }
+        sub="We are always looking for senior engineers, designers, and operators who want to ship AI-native software at the studio cadence — not at agency cadence."
+        actions={
+          <a href="mailto:careers@bigboldtech.com" className="v4-btn v4-btn-primary">
+            Send your application
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="12" height="12"><path d="M3 9 L9 3 M5 3 H9 V7" /></svg>
+          </a>
+        }
+      />
 
-        <div className="diff-layout" style={{ marginTop: '80px' }}>
-          <div className="reveal">
-            <h2 className="sec-title" style={{ fontSize: '32px' }}>Why BigBoldTech</h2>
-            <p className="sec-sub">We&apos;re a small, elite team that punches way above our weight. You&apos;ll work directly with founders, ship real products, and grow faster than anywhere else.</p>
+      <section className="v4-section">
+        <div className="v4-container">
+          <div className="v4-block-head">
+            <div>
+              <span className="v4-eyebrow">Why this place</span>
+              <h2>What you get when you <span className="v4-italic">join.</span></h2>
+            </div>
+            <p>We are small and elite by design. The work compounds because the team compounds.</p>
           </div>
-          <div className="diff-list">
-            <div className="diff-card reveal">
-              <div className="diff-idx">01</div>
-              <div>
-                <h4>Real Impact</h4>
-                <p>No maintenance tickets or legacy code babysitting. You build new systems from scratch for ambitious businesses.</p>
-              </div>
-            </div>
-            <div className="diff-card reveal">
-              <div className="diff-idx">02</div>
-              <div>
-                <h4>Modern Stack</h4>
-                <p>Next.js, Flutter, AI/ML, cloud-native infrastructure. We use the best tools, not the safe ones.</p>
-              </div>
-            </div>
-            <div className="diff-card reveal">
-              <div className="diff-idx">03</div>
-              <div>
-                <h4>Remote-First</h4>
-                <p>Work from anywhere. We care about output, not hours in a chair. Async communication, clear documentation.</p>
-              </div>
-            </div>
-            <div className="diff-card reveal">
-              <div className="diff-idx">04</div>
-              <div>
-                <h4>Growth Path</h4>
-                <p>Learn across the full stack — from AI to marketing to DevOps. We invest in people who want to be excellent.</p>
-              </div>
-            </div>
+          <div className="v4-index-grid cols-2">
+            {principles.map((p, i) => (
+              <Reveal key={p.num} delay={i * 60}>
+                <div className="v4-card">
+                  <div className="v4-card-num">{p.num}</div>
+                  <h3>{p.title}</h3>
+                  <p>{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
+      </section>
 
-        <div style={{ marginTop: '80px' }} className="reveal">
-          <div className="cta">
-            <h2 className="sec-title">No Open Positions?</h2>
-            <p className="sec-sub" style={{ margin: '0 auto 40px', textAlign: 'center', maxWidth: '480px' }}>
-              We&apos;re always interested in hearing from talented people. Send us your portfolio and tell us what excites you.
-            </p>
-            <Link href="mailto:careers@bigboldtech.com" className="btn-glow">
-              Send Your Application
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      <section className="v4-section">
+        <div className="v4-container">
+          <div className="v4-mid-cta">
+            <div>
+              <h3 className="v4-display">No open posting that fits?</h3>
+              <p>Send us your portfolio, your favourite shipped thing, and a sentence on what you want to work on next. If it lands, we will make a role.</p>
+            </div>
+            <Link href="mailto:careers@bigboldtech.com" className="v4-btn v4-btn-primary">
+              careers@bigboldtech.com
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="12" height="12"><path d="M3 9 L9 3 M5 3 H9 V7" /></svg>
             </Link>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

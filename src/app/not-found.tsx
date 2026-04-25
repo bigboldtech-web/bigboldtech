@@ -1,16 +1,24 @@
 import Link from 'next/link'
+import { Scene } from '@/components/v4/Scene'
 
 export default function NotFound() {
   return (
-    <section className="page-hero" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
-      <div className="wrap" style={{ textAlign: 'center' }}>
-        <div className="stat-val" style={{ fontSize: 'clamp(80px, 15vw, 200px)', marginBottom: '24px' }}>404</div>
-        <h1 className="sec-title" style={{ marginBottom: '16px' }}>Page Not Found</h1>
-        <p className="sec-sub" style={{ margin: '0 auto 40px', textAlign: 'center' }}>The page you&apos;re looking for doesn&apos;t exist or has been moved.</p>
-        <Link href="/" className="btn-glow">
-          Back to Home
-          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </Link>
+    <section className="v4-404">
+      <div className="v4-404-stage" aria-hidden>
+        <Scene name="drift" />
+      </div>
+
+      <div className="content">
+        <div className="glitch v4-display">404</div>
+        <h1>Signal lost.</h1>
+        <p>The page you were looking for has drifted out of orbit. Either the link is stale, or we never built it. Either way — let&rsquo;s get you back.</p>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link href="/" className="v4-btn v4-btn-primary">
+            Back to home
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="12" height="12"><path d="M3 9 L9 3 M5 3 H9 V7" /></svg>
+          </Link>
+          <Link href="/contact" className="v4-btn v4-btn-ghost">Tell us what you wanted</Link>
+        </div>
       </div>
     </section>
   )

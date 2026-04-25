@@ -1,92 +1,105 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
+import { useMemo, useState } from 'react'
 import { caseStudies } from '@/data/case-studies'
-import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
-import { FounderNote } from '@/components/sections/FounderNote'
-import { InlineContactForm } from '@/components/sections/InlineContactForm'
-
-const industries = ['All', ...Array.from(new Set(caseStudies.map(c => c.industry)))]
+import { PageHero } from '@/components/v4/PageHero'
+import { Reveal } from '@/components/v4/Reveal'
+import { MidCta } from '@/components/v4/MidCta'
 
 export default function CaseStudiesPage() {
-  const [filter, setFilter] = useState('All')
-  const filtered = filter === 'All' ? caseStudies : caseStudies.filter(c => c.industry === filter)
+  const filters = useMemo(
+    () => ['All', ...Array.from(new Set(caseStudies.map((c) => c.industry)))],
+    []
+  )
+  const [active, setActive] = useState('All')
+  const filtered = active === 'All'
+    ? caseStudies
+    : caseStudies.filter((c) => c.industry === active)
 
   return (
     <>
-      <section className="page-hero">
-        <div className="wrap">
-          <div>
-            <Breadcrumbs items={[{ label: 'Case Studies', href: '/case-studies' }]} />
-            <div className="sec-label">Our Work</div>
-            <h1 className="sec-title">Real Outcomes.<br />Real Numbers.</h1>
-            <p className="sec-sub" style={{ maxWidth: '640px' }}>Every engagement is measured by the impact it delivers. Here are the results that speak for themselves — fraud reduced, revenue scaled, operations transformed.</p>
-          </div>
+      <PageHero
+        eyebrow="Engagements"
+        crumbs={[{ label: 'Work', href: '/case-studies' }]}
+        title={
+          <>
+            Outcomes shipped, <span className="v4-italic">measured.</span>
+          </>
+        }
+        sub="A selection of recent engagements. Each one tied to a metric the work was hired to move."
+        actions={
+          <Link href="/contact" className="v4-btn v4-btn-primary">
+            Begin a project
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="12" height="12"><path d="M3 9 L9 3 M5 3 H9 V7" /></svg>
+          </Link>
+        }
+      />
 
-          <div className="carousel-filters" style={{ marginTop: '48px' }}>
-            {industries.map(ind => (
+      <section className="v4-section">
+        <div className="v4-container">
+          {/* filter row */}
+          <div style={{
+            display: 'flex',
+            gap: 8,
+            flexWrap: 'wrap',
+            marginBottom: 48,
+            paddingBottom: 24,
+            borderBottom: '1px solid var(--v4-border)',
+          }}>
+            {filters.map((f) => (
               <button
-                key={ind}
-                className={`carousel-filter-btn ${filter === ind ? 'active' : ''}`}
-                onClick={() => setFilter(ind)}
+                key={f}
+                onClick={() => setActive(f)}
+                style={{
+                  padding: '10px 18px',
+                  borderRadius: 999,
+                  fontFamily: 'var(--v4-mono)',
+                  fontSize: 11,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  background: active === f ? 'var(--v4-blue)' : 'transparent',
+                  color: active === f ? '#FFFFFF' : 'var(--v4-text-muted)',
+                  border: `1px solid ${active === f ? 'var(--v4-blue)' : 'var(--v4-border-strong)'}`,
+                  cursor: 'pointer',
+                  transition: 'all 0.25s var(--v4-ease)',
+                }}
               >
-                {ind}
+                {f}
               </button>
             ))}
           </div>
 
-          <div className="case-grid">
-            {filtered.map((cs) => (
-              <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="case-card">
-                <span className="industry-tag">{cs.industry}</span>
-                <h3>{cs.client}</h3>
-                <p>{cs.description}</p>
-                <div className="case-metrics">
-                  {cs.results.slice(0, 3).map((r) => (
-                    <div key={r.metric}>
-                      <div className="case-metric-val">{r.value}</div>
-                      <div className="case-metric-lbl">{r.metric}</div>
-                    </div>
-                  ))}
-                </div>
-                {cs.testimonial && (
-                  <div className="case-testimonial-preview">
-                    <p>&ldquo;{cs.testimonial.quote.substring(0, 120)}...&rdquo;</p>
-                    <span>— {cs.testimonial.author}, {cs.testimonial.role}</span>
+          <div className="v4-index-grid cols-2">
+            {filtered.map((cs, i) => (
+              <Reveal key={cs.slug} delay={i * 60}>
+                <Link href={`/case-studies/${cs.slug}`} className="v4-card v4-card-link" style={{ minHeight: 320 }}>
+                  <div className="v4-card-num">{cs.industry}</div>
+                  <h3 style={{ fontSize: 26, lineHeight: 1.15 }}>{cs.client}</h3>
+                  <p>{cs.description}</p>
+                  <div className="v4-card-tags">
+                    {cs.results.slice(0, 3).map((r) => (
+                      <span key={r.metric} className="v4-tag">{r.value} · {r.metric}</span>
+                    ))}
                   </div>
-                )}
-              </Link>
+                  <span className="v4-card-arrow">
+                    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <path d="M3 9 L9 3 M5 3 H9 V7" />
+                    </svg>
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <FounderNote />
-
-      <section className="sec">
-        <div className="wrap">
-          <div className="cta-split">
-            <div className="cta-left">
-              <div className="sec-label">Your Turn</div>
-              <h2 className="sec-title">Want Results<br />Like These?</h2>
-              <p className="sec-sub">Tell us about your project and we will show you exactly how we can deliver measurable outcomes for your business.</p>
-              <div className="cta-trust-signals">
-                <div className="trust-item">
-                  <svg width="20" height="20" fill="none" stroke="var(--green)" strokeWidth="2"><path d="M4 10l4 4 8-8"/><circle cx="10" cy="10" r="9"/></svg>
-                  <span>Response within 24 hours</span>
-                </div>
-                <div className="trust-item">
-                  <svg width="20" height="20" fill="none" stroke="var(--green)" strokeWidth="2"><path d="M4 10l4 4 8-8"/><circle cx="10" cy="10" r="9"/></svg>
-                  <span>No commitment required</span>
-                </div>
-              </div>
-            </div>
-            <div className="cta-right">
-              <InlineContactForm />
-            </div>
-          </div>
-        </div>
+      <section className="v4-section" style={{ padding: '40px 0' }}>
+        <MidCta
+          title="Want a similar outcome?"
+          body="Tell us your constraint. We&rsquo;ll come back with a sharp first take in 48 hours."
+          buttonText="Begin a project"
+        />
       </section>
     </>
   )

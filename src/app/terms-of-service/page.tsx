@@ -1,44 +1,49 @@
 import type { Metadata } from 'next'
+import { PageHero } from '@/components/v4/PageHero'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'BigBoldTech terms of service. Terms and conditions for using our website and services.',
+  description: 'Terms and conditions for using bigboldtech.com and Big Bold Tech services.',
 }
 
 export default function TermsOfServicePage() {
   return (
-    <div className="legal-page">
-      <div className="wrap">
-        <div className="content reveal">
-          <div className="sec-label">Legal</div>
-          <h1 className="sec-title">Terms of Service</h1>
-          <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>Last updated: March 2026</p>
+    <>
+      <PageHero
+        eyebrow="Legal · Last updated April 2026"
+        crumbs={[{ label: 'Terms of Service', href: '/terms-of-service' }]}
+        title={<>Terms of <span className="v4-italic">Service.</span></>}
+        sub="The plain-English version of using this website and our services."
+      />
+      <section className="v4-section">
+        <div className="v4-container">
+          <article className="v4-prose" style={{ margin: '0 auto' }}>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By accessing and using bigboldtech.com you accept these Terms of Service. If you do not agree, please do not use the website.</p>
 
-          <h2>1. Acceptance of Terms</h2>
-          <p>By accessing and using the BigBoldTech website (bigboldtech.com), you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
+            <h2>2. Services</h2>
+            <p>Big Bold Tech provides AI-native product development, SaaS engineering, web and mobile applications, performance marketing, organic visibility, and related services. Specific terms for individual engagements are governed by separate service agreements.</p>
 
-          <h2>2. Services</h2>
-          <p>BigBoldTech provides enterprise technology services including but not limited to AI development, SaaS development, web and mobile application development, performance marketing, SEO, and related services. Specific terms for individual engagements are governed by separate service agreements.</p>
+            <h2>3. Intellectual property</h2>
+            <p>All content on this website is the property of Big Bold Tech Pvt. Ltd. and protected by intellectual property law. You may not reproduce, distribute, or create derivative works without written consent.</p>
 
-          <h2>3. Intellectual Property</h2>
-          <p>All content on this website, including text, graphics, logos, and software, is the property of BigBoldTech Pvt. Ltd. and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without our written consent.</p>
+            <h2>4. Limitation of liability</h2>
+            <p>Big Bold Tech is not liable for indirect, incidental, special, or consequential damages from your use of the website or services. Total liability is capped at amounts you have paid for the specific service in question.</p>
 
-          <h2>4. Limitation of Liability</h2>
-          <p>BigBoldTech shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services. Our total liability shall not exceed the amount paid by you for the specific services in question.</p>
+            <h2>5. Confidentiality</h2>
+            <p>All client project details, business information, and communications are treated as confidential. We do not disclose client information without explicit consent, except where required by law.</p>
 
-          <h2>5. Confidentiality</h2>
-          <p>We treat all client project details, business information, and communications as confidential. We will not disclose client information without explicit consent, except as required by law.</p>
+            <h2>6. Governing law</h2>
+            <p>These terms are governed by the laws of India. Any disputes are subject to the exclusive jurisdiction of courts in India.</p>
 
-          <h2>6. Governing Law</h2>
-          <p>These terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in India.</p>
+            <h2>7. Changes</h2>
+            <p>We may modify these terms. Changes are effective when posted to the website. Continued use constitutes acceptance.</p>
 
-          <h2>7. Changes to Terms</h2>
-          <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to this website. Your continued use constitutes acceptance of the modified terms.</p>
-
-          <h2>8. Contact</h2>
-          <p>For questions about these Terms of Service, contact us at <a href="mailto:contact@bigboldtech.com" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>contact@bigboldtech.com</a>.</p>
+            <h2>8. Contact</h2>
+            <p>For questions about these terms, email <a href="mailto:hello@bigboldtech.com">hello@bigboldtech.com</a>.</p>
+          </article>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }

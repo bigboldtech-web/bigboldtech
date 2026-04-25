@@ -1,44 +1,56 @@
 import type { Metadata } from 'next'
-import { ContactForm } from '@/components/sections/ContactForm'
-import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
+import { PageHero } from '@/components/v4/PageHero'
+import { ContactForm } from '@/components/v4/ContactForm'
+import { Scene } from '@/components/v4/Scene'
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Get in touch with BigBoldTech. Book a discovery call to discuss your next enterprise technology project.',
+  title: 'Contact — Begin a project',
+  description:
+    'Tell us what you are building. We will come back within 48 hours with a sharp first take, and a path to v1.',
 }
 
 export default function ContactPage() {
   return (
-    <section className="page-hero">
-      <div className="wrap">
-        <div className="reveal">
-          <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
-          <div className="sec-label">Get in Touch</div>
-          <h1 className="sec-title">Let&apos;s Build<br />Something Bold</h1>
-          <p className="sec-sub">No pitch decks, no fluff — just a real conversation about your technology needs and how we can help.</p>
-        </div>
-        <div className="contact-grid">
-          <ContactForm />
-          <div className="contact-info">
-            <div className="contact-info-card reveal">
-              <h4>Email Us</h4>
-              <p><a href="mailto:contact@bigboldtech.com">contact@bigboldtech.com</a></p>
+    <>
+      <PageHero
+        eyebrow="Begin a Project"
+        crumbs={[{ label: 'Contact', href: '/contact' }]}
+        title={
+          <>
+            Got a bold idea? <span className="v4-italic">Let&rsquo;s ship it.</span>
+          </>
+        }
+        sub="No deck, no sales theatre. Tell us what you&rsquo;re building, where you are stuck, and where you want to be in ninety days."
+        visual={<Scene name="wire" />}
+      />
+
+      <section className="v4-section">
+        <div className="v4-container">
+          <div className="v4-two-col">
+            <div className="v4-side-card" style={{ padding: 36 }}>
+              <ContactForm />
             </div>
-            <div className="contact-info-card reveal">
-              <h4>Based In</h4>
-              <p>India — Serving clients globally across North America, Europe, Middle East, and Asia-Pacific.</p>
-            </div>
-            <div className="contact-info-card reveal">
-              <h4>Response Time</h4>
-              <p>We respond to all inquiries within 24 hours. For urgent projects, mention it in your message.</p>
-            </div>
-            <div className="contact-info-card reveal">
-              <h4>Ideal Client</h4>
-              <p>Established businesses generating $1M+ in revenue who need enterprise-grade technology infrastructure and growth systems.</p>
-            </div>
+            <aside className="v4-sidebar">
+              <div className="v4-side-card">
+                <h4>Email</h4>
+                <p><a href="mailto:hello@bigboldtech.com">hello@bigboldtech.com</a></p>
+              </div>
+              <div className="v4-side-card">
+                <h4>Where we operate</h4>
+                <p>Mumbai &middot; Bengaluru &middot; Kathmandu &middot; Remote.<br />Serving partners across India, North America, and the Middle East.</p>
+              </div>
+              <div className="v4-side-card">
+                <h4>Response time</h4>
+                <p>Within 48 hours, every weekday. We do not auto-reply &mdash; you&rsquo;ll hear from a human.</p>
+              </div>
+              <div className="v4-side-card">
+                <h4>Best fit</h4>
+                <p>Founders and operators of $1M+ businesses. Diagnostics from <strong style={{ color: 'var(--v4-text)' }}>$8K</strong>. Full builds typically <strong style={{ color: 'var(--v4-text)' }}>$60K&ndash;$500K+</strong>.</p>
+              </div>
+            </aside>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

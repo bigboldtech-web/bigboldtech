@@ -1,140 +1,94 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { team } from '@/data/team'
-import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
-import { ClientLogos } from '@/components/sections/ClientLogos'
-import { FounderNote } from '@/components/sections/FounderNote'
-import { InlineContactForm } from '@/components/sections/InlineContactForm'
+import { PageHero } from '@/components/v4/PageHero'
+import { Reveal } from '@/components/v4/Reveal'
+import { MidCta } from '@/components/v4/MidCta'
+import { Scene } from '@/components/v4/Scene'
 
 export const metadata: Metadata = {
-  title: 'About',
-  description: 'BigBoldTech is an enterprise technology agency building AI systems, SaaS platforms, and growth engines for ambitious businesses.',
+  title: 'About — The Studio',
+  description:
+    'Big Bold Tech is an AI-native product studio + venture lab. Mumbai · Bengaluru · Kathmandu. We build software with conviction.',
 }
 
+const values = [
+  { num: '01', title: 'Conviction over consensus', body: 'Every product has a strong opinion. Build a sharper tool 100 people love over a vague one 10,000 tolerate.' },
+  { num: '02', title: 'Ship the version that exists', body: 'Tight loops, daily deploys, learn faster than the slide-deck competition. Velocity is the moat.' },
+  { num: '03', title: 'Details are the brand', body: 'Loading states, copy, micro-animations, error messages. The last 5% is where forgettable becomes unforgettable.' },
+  { num: '04', title: 'Generalists by design', body: 'Strategy meets infra meets pixel. One team thinking the whole stack so context never leaks.' },
+  { num: '05', title: 'Own the outcome', body: 'We do not ship tasks. We ship the metric the work was hired to move. If it cannot be measured, it is not in scope.' },
+  { num: '06', title: 'Build, do not blame', body: 'When something breaks we fix it. When something is unclear we clarify. There is one team — yours.' },
+]
+
+const story = [
+  'Big Bold Tech began in 2022 as a single conviction: AI-native software is going to outperform every "AI feature bolted onto a 2015 product" — and the operators who ship the AI-native version first will dominate their category.',
+  'We started by building Cashkr, an India-first device buyback platform that now ships 140+ orders daily across 21 cities. Then we built a SaaS infrastructure layer underneath it — and realised we could ship products for other founders at the same speed.',
+  'Today we operate as a product studio + venture lab. We build for our own portfolio (Cashkr, Big Bold Teams, ManagedAd, Workwrk, Suprfly, SwayMaps) and we partner with founders who want the same conviction-led delivery cadence applied to their problem.',
+]
+
+const stats = [
+  { num: '50+',     lbl: 'Engagements shipped' },
+  { num: '6',       lbl: 'Live products' },
+  { num: '21',      lbl: 'Cities served' },
+  { num: '5,400+',  lbl: 'Cashkr orders / month' },
+  { num: '99.9%',   lbl: 'Production uptime' },
+  { num: '$50M+',   lbl: 'Client revenue impacted' },
+]
+
 export default function AboutPage() {
-  const values = [
-    { num: '01', title: 'Ownership Over Output', desc: 'We do not ship tasks — we own outcomes. Every team member thinks like a co-founder of your project. Your success is our reputation on the line.' },
-    { num: '02', title: 'Radical Transparency', desc: 'No hidden costs, no scope surprises. You see exactly what we are building, why, and what it costs — in real-time dashboards, not monthly PDFs.' },
-    { num: '03', title: 'Engineering Excellence', desc: 'Clean code, tested systems, documented architecture. We build for the long term, not the demo. Every system ships with monitoring, CI/CD, and security baked in.' },
-    { num: '04', title: 'AI-Native Thinking', desc: 'Every system we design considers where AI can multiply efficiency. We do not bolt AI on as an afterthought — it is woven into our engineering DNA.' },
-    { num: '05', title: 'Data Over Opinions', desc: 'Every decision is backed by data. Every rupee is tracked. Every result is measured. We build custom dashboards so you never have to ask "is this working?"' },
-    { num: '06', title: 'Build, Do Not Blame', desc: 'When something breaks, we fix it. When something is unclear, we clarify. We do not point fingers between teams — because there is only one team: yours.' },
-  ]
-
-  const stats = [
-    { value: '50+', label: 'Projects Delivered' },
-    { value: '12', label: 'A-Star Engineers' },
-    { value: '9', label: 'Service Verticals' },
-    { value: '21+', label: 'Cities Reached' },
-    { value: '99.9%', label: 'Uptime Record' },
-    { value: '$50M+', label: 'Client Revenue Impacted' },
-  ]
-
   return (
     <>
-      {/* Hero */}
-      <section className="page-hero">
-        <div className="wrap">
-          <div className="reveal">
-            <Breadcrumbs items={[{ label: 'About', href: '/about' }]} />
-            <div className="sec-label">About BigBoldTech</div>
-            <h1 className="sec-title">We Build What<br />Others Won&apos;t Attempt</h1>
-            <p className="sec-sub" style={{ maxWidth: '640px' }}>BigBoldTech is an enterprise technology agency headquartered in India, serving ambitious businesses globally. We combine deep engineering expertise with growth marketing to deliver technology that compounds your success — not just checks a box.</p>
-            <div style={{ marginTop: '32px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-              <Link href="/contact" className="btn-glow">
-                Book Discovery Call
-                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-              </Link>
-              <a href="#team" className="btn-ghost">
-                Meet the Team
-                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-              </a>
+      <PageHero
+        eyebrow="The Studio"
+        crumbs={[{ label: 'About', href: '/about' }]}
+        title={
+          <>
+            Software that thinks like a <span className="v4-italic">founder.</span>
+          </>
+        }
+        sub={
+          <>
+            We&rsquo;re a product studio in Mumbai with a team in Kathmandu, building
+            AI-native software for the operators, founders, and teams shaping
+            what comes next. Built decisively. Shipped relentlessly.
+          </>
+        }
+        actions={
+          <>
+            <Link href="/contact" className="v4-btn v4-btn-primary">
+              Begin a project
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="12" height="12"><path d="M3 9 L9 3 M5 3 H9 V7" /></svg>
+            </Link>
+            <a href="#team" className="v4-btn v4-btn-ghost">Meet the team</a>
+          </>
+        }
+        visual={<Scene name="orbit" />}
+      />
+
+      {/* Story */}
+      <section className="v4-section">
+        <div className="v4-container">
+          <div className="v4-block-head">
+            <div>
+              <span className="v4-eyebrow">Origin</span>
+              <h2>Started with a <span className="v4-italic">conviction</span>.<br />Now we ship the proof.</h2>
             </div>
+          </div>
+          <div className="v4-prose" style={{ maxWidth: 880 }}>
+            {story.map((p) => <p key={p}>{p}</p>)}
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="sec sec-dark">
-        <div className="wrap">
-          <div className="diff-layout" style={{ marginTop: 0 }}>
-            <div className="reveal">
-              <div className="sec-label">Our Story</div>
-              <h2 className="sec-title" style={{ fontSize: '36px' }}>Born from Frustration.<br />Built for Impact.</h2>
-            </div>
-            <div className="reveal">
-              <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '20px' }}>
-                BigBoldTech started because our founder, Marcus Chen, spent years watching enterprise companies get burned by fragmented vendor ecosystems. One agency for the website. Another for the app. A third for ads. A fourth for analytics. None of them talking to each other — and none of them accountable for the actual business outcome.
-              </p>
-              <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: 1.8, marginBottom: '20px' }}>
-                We built BigBoldTech to be the anti-agency: a single, engineering-led team that owns your entire technology and growth stack — from infrastructure to UI to marketing pixels. No hand-offs. No finger-pointing. No vanity metrics. Just measurable outcomes tied to revenue.
-              </p>
-              <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: 1.8 }}>
-                Today, we are a team of 12+ A-star engineers, designers, and growth experts serving enterprise clients across fintech, healthcare, e-commerce, real estate, SaaS, and manufacturing. We have delivered 50+ projects, impacted $50M+ in client revenue, and maintain a 99.9% uptime record across all managed infrastructure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="about-stats-grid">
-            {stats.map((stat, i) => (
-              <div key={i} className="counter-stat reveal">
-                <div className="counter-val">{stat.value}</div>
-                <div className="counter-lbl">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why BigBoldTech Exists */}
-      <section className="sec sec-dark">
-        <div className="wrap">
-          <div className="reveal" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
-            <div className="sec-label" style={{ justifyContent: 'center' }}>Why We Exist</div>
-            <h2 className="sec-title">Three Problems<br />We Refuse to Ignore</h2>
-          </div>
-          <div className="problem-grid" style={{ marginTop: '56px' }}>
-            <div className="problem-card reveal">
-              <div className="problem-num">01</div>
-              <h3>Fragmented Tech Stacks Kill Growth</h3>
-              <p>Enterprises juggle 5-10 vendors who never coordinate. Every handoff leaks context, budget, and momentum. You need one team that owns everything end-to-end.</p>
-            </div>
-            <div className="problem-card reveal">
-              <div className="problem-num">02</div>
-              <h3>Agencies Optimize for Deliverables, Not Results</h3>
-              <p>Your agency celebrates traffic milestones while your revenue is flat. Vanity metrics and templated PDFs are not accountability. You need partners who tie every action to revenue.</p>
-            </div>
-            <div className="problem-card reveal">
-              <div className="problem-num">03</div>
-              <h3>AI Changed the Game — Most Have Not Noticed</h3>
-              <p>Customers get answers from ChatGPT instead of your website. Traditional SEO is table stakes. GEO, AEO, and LLMO are the new battleground — and most agencies cannot even define them.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <ClientLogos />
-
-      {/* Leadership */}
-      <section className="sec" id="team">
-        <div className="wrap">
-          <div className="reveal">
-            <div className="sec-label">Leadership</div>
-            <h2 className="sec-title">The Team Behind<br />Your Growth Engine</h2>
-            <p className="sec-sub">12+ A-star professionals across engineering, AI, design, and growth marketing. Builder-led, not sales-led — your point of contact writes your code.</p>
-          </div>
-          <div className="team-grid-v2">
-            {team.map((member) => (
-              <div key={member.name} className="team-card-v2 reveal">
-                <div className="team-avatar">{member.initials}</div>
-                <h4>{member.name}</h4>
-                <div className="role">{member.role}</div>
-                <p className="team-bio">{member.bio}</p>
+      {/* Stats */}
+      <section className="v4-section" style={{ padding: '40px 0' }}>
+        <div className="v4-container">
+          <div className="v4-stat-grid">
+            {stats.map((s) => (
+              <div key={s.lbl} className="v4-stat-block">
+                <div className="num">{s.num}</div>
+                <div className="lbl">{s.lbl}</div>
               </div>
             ))}
           </div>
@@ -142,50 +96,62 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="sec sec-dark">
-        <div className="wrap">
-          <div className="reveal">
-            <div className="sec-label">Our DNA</div>
-            <h2 className="sec-title">What Drives Us</h2>
-            <p className="sec-sub">Six principles that guide every decision, every line of code, and every client engagement.</p>
+      <section className="v4-section">
+        <div className="v4-container">
+          <div className="v4-block-head">
+            <div>
+              <span className="v4-eyebrow">Operating principles</span>
+              <h2>What we <span className="v4-italic">refuse</span> to compromise on.</h2>
+            </div>
+            <p>Six principles that guide every line of code, every brief we accept, and every quarter we ship.</p>
           </div>
-          <div className="values-grid">
-            {values.map((v) => (
-              <div key={v.num} className="diff-card reveal">
-                <div className="diff-idx">{v.num}</div>
-                <div>
-                  <h4>{v.title}</h4>
-                  <p>{v.desc}</p>
+          <div className="v4-index-grid">
+            {values.map((v, i) => (
+              <Reveal key={v.num} delay={i * 60}>
+                <div className="v4-card">
+                  <div className="v4-card-num">{v.num}</div>
+                  <h3>{v.title}</h3>
+                  <p>{v.body}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Founder */}
-      <FounderNote />
-
-      {/* CTA */}
-      <section className="sec">
-        <div className="wrap">
-          <div className="cta-split reveal">
-            <div className="cta-left">
-              <div className="sec-label">Join Us</div>
-              <h2 className="sec-title">Want to Build the<br />Future With Us?</h2>
-              <p className="sec-sub">Whether you are a potential client or a talented engineer looking for your next challenge — we would love to hear from you.</p>
-              <div style={{ marginTop: '24px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                <Link href="/careers" className="btn-ghost">
-                  View Open Roles
-                  <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-                </Link>
-              </div>
+      {/* Team */}
+      <section className="v4-section" id="team">
+        <div className="v4-container">
+          <div className="v4-block-head">
+            <div>
+              <span className="v4-eyebrow">The People</span>
+              <h2>Senior teams only. <span className="v4-italic">No churn.</span></h2>
             </div>
-            <div className="cta-right">
-              <InlineContactForm />
-            </div>
+            <p>The strategists, architects, and engineers who scope your engagement are the same people shipping it. No staffing churn, no junior handoffs.</p>
+          </div>
+          <div className="v4-team-grid">
+            {team.map((m, i) => (
+              <Reveal key={m.name} delay={i * 40}>
+                <div className="v4-team-card">
+                  <div className="v4-team-avatar">{m.initials}</div>
+                  <h4>{m.name}</h4>
+                  <div className="role">{m.role}</div>
+                  <p className="bio">{m.bio}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
+      </section>
+
+      {/* Mid CTA */}
+      <section className="v4-section" style={{ padding: '40px 0' }}>
+        <MidCta
+          title="Bring us a problem worth solving."
+          body="We are accepting a small cohort of partners for Q2 2026. Start with a thirty-minute strategy session — no deck, no sales theatre."
+          buttonText="Begin a project"
+          buttonHref="/contact"
+        />
       </section>
     </>
   )
