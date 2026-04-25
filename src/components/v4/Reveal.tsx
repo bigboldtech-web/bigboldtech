@@ -1,15 +1,15 @@
 'use client'
 
-import { useEffect, useRef, type ReactNode, type ElementType } from 'react'
+import { useEffect, useRef, type ReactNode, type JSX } from 'react'
 
 type Props = {
-  as?: ElementType
+  as?: keyof JSX.IntrinsicElements
   children: ReactNode
   delay?: number
   className?: string
 }
 
-export function Reveal({ as: Tag = 'div', children, delay = 0, className }: Props) {
+export function Reveal({ as = 'div', children, delay = 0, className }: Props) {
   const ref = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -30,10 +30,13 @@ export function Reveal({ as: Tag = 'div', children, delay = 0, className }: Prop
     return () => io.disconnect()
   }, [delay])
 
-  const Component = Tag as ElementType
+  // Dynamic JSX tag — using React.createElement so the children typing isn't
+  // narrowed to 'never' under strict mode.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Tag: any = as
   return (
-    <Component ref={ref as never} className={`v4-reveal ${className ?? ''}`}>
+    <Tag ref={ref} className={`v4-reveal ${className ?? ''}`}>
       {children}
-    </Component>
+    </Tag>
   )
 }
