@@ -5,6 +5,10 @@
 
 html, body {
   height: 100%;
+  /* clip prevents horizontal scroll without creating a scroll container.
+     Hardens against any element overflowing the viewport horizontally. */
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 html {
@@ -18,7 +22,12 @@ body {
   font-family: var(--v4-body, 'Schibsted Grotesk', system-ui, sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 img, svg, video, canvas, audio, iframe, embed, object {
