@@ -375,7 +375,38 @@ body[data-theme="v4"] main { position: relative; z-index: 1; }
   .v4-nav-links { display: none; }
   .v4-nav-cta { display: none; }
   .v4-burger { display: inline-flex; }
-  .v4-nav { padding: 8px 8px 8px 18px; }
+  .v4-nav-wrap {
+    top: 12px;
+    padding: 0 16px;
+  }
+  .v4-nav {
+    padding: 5px 5px 5px 14px;
+    border-radius: 999px;
+  }
+  .v4-brand { gap: 7px; }
+  .v4-brand-mark {
+    width: 22px;
+    height: 21px;
+    filter: drop-shadow(0 0 8px rgba(74, 116, 255, 0.3));
+  }
+  .v4-brand-wordmark { font-size: 16px; letter-spacing: -0.04em; }
+  .v4-burger {
+    width: 34px;
+    height: 34px;
+  }
+  .v4-burger span,
+  .v4-burger span::before,
+  .v4-burger span::after {
+    width: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .v4-brand-wordmark { font-size: 14px; }
+  .v4-brand-mark {
+    width: 20px;
+    height: 19px;
+  }
 }
 
 .v4-mobile-menu {
