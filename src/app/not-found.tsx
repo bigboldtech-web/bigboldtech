@@ -1,25 +1,58 @@
 import Link from 'next/link'
-import { Scene } from '@/components/v4/Scene'
 
 export default function NotFound() {
   return (
-    <section className="v4-404">
-      <div className="v4-404-stage" aria-hidden>
-        <Scene name="drift" />
+    <main
+      style={{
+        minHeight: '100vh',
+        display: 'grid',
+        placeItems: 'center',
+        padding: '40px 24px',
+        textAlign: 'center',
+      }}
+    >
+      <div>
+        <p
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 12,
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: '#5C6586',
+            marginBottom: 16,
+          }}
+        >
+          404
+        </p>
+        <h1
+          style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(36px, 5vw, 64px)',
+            fontWeight: 700,
+            letterSpacing: '-0.03em',
+            marginBottom: 16,
+          }}
+        >
+          Page not found.
+        </h1>
+        <p style={{ color: '#8E9AB8', marginBottom: 32 }}>
+          The link you followed is broken or this page was moved.
+        </p>
+        <Link
+          href="/"
+          style={{
+            display: 'inline-block',
+            padding: '14px 22px',
+            background: '#4A74FF',
+            color: '#fff',
+            borderRadius: 999,
+            fontWeight: 600,
+            textDecoration: 'none',
+          }}
+        >
+          Back to home
+        </Link>
       </div>
-
-      <div className="content">
-        <div className="glitch v4-display">404</div>
-        <h1>Signal lost.</h1>
-        <p>The page you were looking for has drifted out of orbit. Either the link is stale, or we never built it. Either way — let&rsquo;s get you back.</p>
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/" className="v4-btn v4-btn-primary">
-            Back to home
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" width="12" height="12"><path d="M3 9 L9 3 M5 3 H9 V7" /></svg>
-          </Link>
-          <Link href="/contact" className="v4-btn v4-btn-ghost">Tell us what you wanted</Link>
-        </div>
-      </div>
-    </section>
+    </main>
   )
 }

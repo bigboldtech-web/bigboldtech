@@ -1,70 +1,33 @@
-import { HeroV4 } from '@/components/v4/Hero'
-import { LogoStrip } from '@/components/v4/LogoStrip'
-import { GapV4 } from '@/components/v4/Gap'
-import { SolutionV4 } from '@/components/v4/Solution'
-import { MediaHero } from '@/components/v4/MediaHero'
-import { ProductsV4 } from '@/components/v4/Products'
-import { StatHero } from '@/components/v4/StatHero'
-import { ValuesV4 } from '@/components/v4/Values'
-import { InterfaceV4 } from '@/components/v4/Interface'
-import { TestimonialRow } from '@/components/v4/TestimonialRow'
-import { AboutV4 } from '@/components/v4/About'
-import { CTAV4 } from '@/components/v4/CTA'
-import { media } from '@/data/media'
-import { founderStats } from '@/data/stats'
-import { testimonials } from '@/data/testimonials'
-
 export default function HomePage() {
   return (
-    <>
-      <HeroV4 />
-
-      <LogoStrip
-        eyebrow="Trusted by founders + operators across"
-        caption="Selected partners and ventures we've shipped products with."
-      />
-
-      <GapV4 />
-
-      <SolutionV4 />
-
-      <section className="v4-section v4-section-media">
-        <div className="v4-container">
-          <MediaHero
-            kind="image"
-            media={media.studioWide}
-            tint="strong"
-            ratio="21/9"
-            caption="Studio · Bengaluru + remote"
-          />
-        </div>
-      </section>
-
-      <ProductsV4 />
-
-      <StatHero
-        eyebrow="The receipts"
-        stats={founderStats}
-        variant="grid"
-      />
-
-      <ValuesV4 />
-
-      <InterfaceV4 />
-
-      <TestimonialRow
-        eyebrow="Operator notes"
-        heading={
-          <>
-            Founders who&rsquo;ve built with us, in <span className="v4-italic">their words</span>.
-          </>
-        }
-        testimonials={testimonials}
-        limit={3}
-      />
-
-      <AboutV4 />
-      <CTAV4 />
-    </>
+    <main style={{ padding: '120px 24px', maxWidth: 720, margin: '0 auto' }}>
+      <p
+        style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: 12,
+          letterSpacing: '0.16em',
+          textTransform: 'uppercase',
+          color: '#5C6586',
+          marginBottom: 16,
+        }}
+      >
+        Big Bold Tech · rebuild in progress
+      </p>
+      <h1
+        style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: 'clamp(40px, 5vw, 72px)',
+          fontWeight: 700,
+          letterSpacing: '-0.03em',
+          lineHeight: 1.05,
+          marginBottom: 24,
+        }}
+      >
+        Software, AI, and growth — end-to-end.
+      </h1>
+      <p style={{ color: '#8E9AB8', fontSize: 17, lineHeight: 1.6 }}>
+        New site coming. This is the holding page after the rebuild wipe.
+      </p>
+    </main>
   )
 }
