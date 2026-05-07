@@ -3,8 +3,8 @@
 import dynamic from 'next/dynamic'
 import { Reveal } from './Reveal'
 
-const WireIcosahedron = dynamic(
-  () => import('./WireIcosahedron').then((m) => m.WireIcosahedron),
+const WireTorusKnot = dynamic(
+  () => import('./WireTorusKnot').then((m) => m.WireTorusKnot),
   { ssr: false, loading: () => null }
 )
 
@@ -21,6 +21,7 @@ export function ValuesV4() {
 
         <div className="v4-values-grid">
           <Reveal className="v4-tile is-feature t1">
+            <div className="v4-tile-glyph" aria-hidden>01</div>
             <div className="v4-tile-num">01 / Conviction</div>
             <h3>We pick a hill. We <span className="v4-italic">die on it.</span></h3>
             <p>
@@ -43,7 +44,7 @@ export function ValuesV4() {
             </p>
           </Reveal>
 
-          <Reveal delay={160} className="v4-tile t3">
+          <Reveal delay={160} className="v4-tile t3 has-3d">
             <div className="v4-tile-num">03 / Craft</div>
             <h3>Details are the brand.</h3>
             <p>
@@ -52,7 +53,7 @@ export function ValuesV4() {
               last 5%.
             </p>
             <div className="v4-tile-3d">
-              <WireIcosahedron />
+              <WireTorusKnot />
             </div>
           </Reveal>
 
