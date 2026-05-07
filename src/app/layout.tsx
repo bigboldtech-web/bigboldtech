@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { dmSans, plusJakarta, jetbrainsMono } from '@/lib/fonts'
 import { SITE_CONFIG } from '@/lib/constants'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 import '@/styles/globals.css'
+import '@/styles/components.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -10,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Big Bold Tech',
   },
   description:
-    'Big Bold Tech is a full-service technology partner. We build AI applications, custom software, and growth systems for ambitious companies.',
+    'Big Bold Tech is a full-service technology + growth partner. We build AI applications, custom software, and the marketing engines that put them in front of customers.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -31,7 +34,11 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }

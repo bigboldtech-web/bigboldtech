@@ -1,33 +1,23 @@
+import { Container } from '@/components/Container'
+import { Section } from '@/components/Section'
+import { Eyebrow } from '@/components/Eyebrow'
+import { Button } from '@/components/Button'
+
 export default function HomePage() {
   return (
-    <main style={{ padding: '120px 24px', maxWidth: 720, margin: '0 auto' }}>
-      <p
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 12,
-          letterSpacing: '0.16em',
-          textTransform: 'uppercase',
-          color: '#5C6586',
-          marginBottom: 16,
-        }}
-      >
-        Big Bold Tech · rebuild in progress
-      </p>
-      <h1
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(40px, 5vw, 72px)',
-          fontWeight: 700,
-          letterSpacing: '-0.03em',
-          lineHeight: 1.05,
-          marginBottom: 24,
-        }}
-      >
-        Software, AI, and growth — end-to-end.
-      </h1>
-      <p style={{ color: '#8E9AB8', fontSize: 17, lineHeight: 1.6 }}>
-        New site coming. This is the holding page after the rebuild wipe.
-      </p>
-    </main>
+    <Section size="lg" noBorder>
+      <Container size="narrow">
+        <Eyebrow>Rebuild · Phase 1 of 7</Eyebrow>
+        <h1 className="h1-bbt">Software, AI, and growth — end-to-end.</h1>
+        <p className="lede-bbt" style={{ marginTop: 24 }}>
+          Foundation in place. Header, footer, design tokens, primitives, button,
+          container, section. Homepage sections begin in commit 2.
+        </p>
+        <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
+          <Button href="/contact" arrow>Start a project</Button>
+          <Button href="/work" variant="ghost">See our work</Button>
+        </div>
+      </Container>
+    </Section>
   )
 }
