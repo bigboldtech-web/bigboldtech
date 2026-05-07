@@ -9,6 +9,7 @@ const links = [
   { href: '/services',     label: 'Capabilities' },
   { href: '/case-studies', label: 'Work' },
   { href: '/industries',   label: 'Industries' },
+  { href: '/enterprise',   label: 'Enterprise' },
   { href: '/about',        label: 'Studio' },
   { href: '/blog',         label: 'Journal' },
 ]
@@ -55,12 +56,21 @@ export function HeaderV4() {
             ))}
           </ul>
 
-          <Link href="/contact" className="v4-nav-cta">
-            Book a call
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" width="12" height="12">
-              <path d="M3 9 L9 3 M5 3 H9 V7" />
-            </svg>
-          </Link>
+          {pathname.startsWith('/enterprise') ? (
+            <Link href="/enterprise#contact" className="v4-nav-cta">
+              Request deck
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" width="12" height="12">
+                <path d="M3 9 L9 3 M5 3 H9 V7" />
+              </svg>
+            </Link>
+          ) : (
+            <Link href="/contact" className="v4-nav-cta">
+              Book a call
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" width="12" height="12">
+                <path d="M3 9 L9 3 M5 3 H9 V7" />
+              </svg>
+            </Link>
+          )}
 
           <button
             className="v4-burger"
