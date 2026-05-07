@@ -25,6 +25,7 @@ import '@/styles/globals.css'
 import '@/styles/v4.css'
 import '@/styles/v4-fx.css'
 import '@/styles/v4-pages.css'
+import '@/styles/v4-modules.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),

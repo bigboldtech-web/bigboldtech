@@ -1,5 +1,10 @@
 import type { Testimonial } from '@/types'
 
+/**
+ * IMPORTANT: All people, companies, and quotes below are PLACEHOLDER.
+ * None of them are real. Replace with attributed, permissioned quotes
+ * before production launch.
+ */
 export const testimonials: Testimonial[] = [
   {
     quote:
@@ -56,5 +61,34 @@ export const testimonials: Testimonial[] = [
     author: 'Chris Williams',
     role: 'Head of Growth',
     company: 'LearnBridge Academy',
+  },
+]
+
+/**
+ * Enterprise-voice testimonials. Tone is procurement-friendly:
+ * compliance, reliability, total cost, vendor-management language.
+ * All PLACEHOLDER — see note above.
+ */
+export const enterpriseTestimonials: Testimonial[] = [
+  {
+    quote:
+      'They closed our security review in two weeks — fastest of any vendor we evaluated. The eng team treated SOC 2 controls as design constraints, not paperwork.',
+    author: 'Priya Raghavan',
+    role: 'VP of Engineering',
+    company: 'Atlas Bank',
+  },
+  {
+    quote:
+      'Big Bold replaced a six-figure annual SaaS contract with a custom platform their team operates for us. We got better margins, faster releases, and a real audit trail.',
+    author: 'Daniel Okafor',
+    role: 'COO',
+    company: 'Northwind',
+  },
+  {
+    quote:
+      "What I valued most was honesty about scope. They told us which parts of our wishlist were actually 'next year', not 'next quarter'. That candor saved us from a bad bet.",
+    author: 'Hiroko Tanaka',
+    role: 'Chief Digital Officer',
+    company: 'Meridian',
   },
 ]
