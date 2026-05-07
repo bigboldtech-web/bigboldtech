@@ -177,6 +177,17 @@
   padding: 8px 14px;
 }
 
+/* ---------- Section: media break --------------------------- */
+.v4-section-media {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.v4-section-media .v4-mediahero {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
 /* ---------- TestimonialRow -------------------------------- */
 .v4-testimonials {
   background: linear-gradient(180deg, var(--v4-bg) 0%, #080B16 100%);
