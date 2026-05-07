@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { Reveal } from './Reveal'
 
 const CrystalCore = dynamic(
@@ -68,36 +68,43 @@ export function SolutionV4() {
         </Reveal>
 
         <div className="v4-solution-grid">
-          <div className="v4-solution-features">
+          <div
+            className="v4-solution-features"
+            style={{ '--active-index': active } as CSSProperties}
+          >
+            <span className="v4-feature-rail" aria-hidden />
             {features.map((f, i) => (
-              <div
+              <button
                 key={f.title}
-                className="v4-feature"
+                type="button"
+                className={`v4-feature ${active === i ? 'is-active' : ''}`}
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
-                tabIndex={0}
-                style={active === i ? { paddingLeft: 8 } : undefined}
+                onClick={() => setActive(i)}
               >
-                <div className="v4-feature-icon">{f.icon}</div>
-                <div>
-                  <h3 style={active === i ? { color: 'var(--v4-text)' } : undefined}>{f.title}</h3>
-                  <p style={active === i ? { maxHeight: 80, marginTop: 8 } : undefined}>{f.body}</p>
+                <div className="v4-feature-counter">
+                  {String(i + 1).padStart(2, '0')}
                 </div>
-              </div>
+                <div className="v4-feature-icon">{f.icon}</div>
+                <div className="v4-feature-body">
+                  <h3>{f.title}</h3>
+                  <p>{f.body}</p>
+                </div>
+              </button>
             ))}
           </div>
 
           <Reveal className="v4-solution-visual">
             <span className="v4-sv-badge">Live &middot; WebGL</span>
             <CrystalCore activeIndex={active} />
-            <div className="v4-sv-dots" aria-hidden>
+            <div className="v4-sv-progress" aria-hidden>
               {features.map((_, i) => (
-                <span key={i} className={`v4-sv-dot ${active === i ? 'is-active' : ''}`} />
+                <span key={i} className={`v4-sv-tick ${i <= active ? 'is-on' : ''}`} />
               ))}
             </div>
             <div className="v4-sv-label">
-              <span>BBT.STUDIO / 001</span>
-              <span>Drag to rotate</span>
+              <span>BBT.STUDIO / {String(active + 1).padStart(3, '0')}</span>
+              <span>{features[active].title}</span>
             </div>
           </Reveal>
         </div>

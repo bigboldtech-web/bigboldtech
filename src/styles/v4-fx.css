@@ -376,24 +376,25 @@ body[data-theme="v4"] main { z-index: 1; }
   z-index: 2;
 }
 
-/* a small numbered node centered on the connector line */
+/* a small numbered node sitting on the connector line, above each card */
 .v4-step-node {
   position: absolute;
-  top: 16px;
+  top: -52px;
   left: 50%;
   transform: translateX(-50%);
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--v4-bg);
   border: 1px solid var(--v4-border-blue);
   display: grid;
   place-items: center;
-  z-index: 3;
+  z-index: 4;
   font-family: var(--v4-mono);
-  font-size: 9px;
-  letter-spacing: 0;
+  font-size: 11px;
+  letter-spacing: 0.04em;
   color: var(--v4-blue-bright);
+  box-shadow: 0 0 0 4px var(--v4-bg), 0 0 16px rgba(74, 116, 255, 0.35);
 }
 
 .v4-step-node::after {
@@ -437,30 +438,29 @@ body[data-theme="v4"] main { z-index: 1; }
 /* ===========================================================
    Solution sphere — control dots indicating active feature
    =========================================================== */
-.v4-sv-dots {
+.v4-sv-progress {
   position: absolute;
-  bottom: 56px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 24px;
+  right: 24px;
+  bottom: 60px;
   z-index: 3;
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 6px;
   pointer-events: none;
 }
 
-.v4-sv-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(154, 182, 255, 0.3);
-  transition: all 0.4s var(--v4-ease);
+.v4-sv-tick {
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(154, 182, 255, 0.16);
+  transition: background 0.5s var(--v4-ease), box-shadow 0.5s var(--v4-ease);
 }
 
-.v4-sv-dot.is-active {
-  width: 24px;
-  border-radius: 4px;
+.v4-sv-tick.is-on {
   background: var(--v4-blue-bright);
-  box-shadow: 0 0 10px var(--v4-blue-bright);
+  box-shadow: 0 0 10px rgba(110, 146, 255, 0.55);
 }
 
 /* ===========================================================
