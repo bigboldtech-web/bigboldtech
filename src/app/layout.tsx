@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import '@/styles/globals.css'
 import '@/styles/components.css'
 import '@/styles/home.css'
+import '@/styles/pages.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
