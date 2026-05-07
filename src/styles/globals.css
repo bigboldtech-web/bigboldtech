@@ -3,17 +3,12 @@
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-  height: 100%;
-  /* clip prevents horizontal scroll without creating a scroll container.
-     Hardens against any element overflowing the viewport horizontally. */
-  overflow-x: clip;
-  max-width: 100%;
-}
-
 html {
   /* let Lenis own scroll behaviour */
   scroll-behavior: auto;
+  /* clip prevents horizontal scroll without creating a scroll container.
+     Hardens against any element overflowing the viewport horizontally. */
+  overflow-x: clip;
 }
 
 body {
@@ -23,11 +18,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+  overflow-x: clip;
 }
 
 main {
   overflow-x: clip;
-  max-width: 100%;
 }
 
 img, svg, video, canvas, audio, iframe, embed, object {
