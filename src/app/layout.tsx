@@ -3,6 +3,12 @@ import { dmSans, plusJakarta, jetbrainsMono } from '@/lib/fonts'
 import { SITE_CONFIG } from '@/lib/constants'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { JsonLd } from '@/components/JsonLd'
+import {
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildLocalBusinessSchema,
+} from '@/lib/schema'
 import '@/styles/globals.css'
 import '@/styles/components.css'
 import '@/styles/home.css'
@@ -16,14 +22,48 @@ export const metadata: Metadata = {
   },
   description:
     'Big Bold Tech is a full-service technology + growth partner. We build AI applications, custom software, and the marketing engines that put them in front of customers.',
+  keywords: [
+    'AI development agency',
+    'custom software development',
+    'AI applications',
+    'SaaS development',
+    'digital marketing agency',
+    'performance marketing',
+    'SEO agency India',
+    'fintech software',
+    'healthcare software',
+    'e-commerce development',
+    'DevOps consulting',
+  ],
+  authors: [{ name: SITE_CONFIG.name }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
+    title: 'Big Bold Tech — Software, AI, and growth, end-to-end',
+    description:
+      'Full-service technology partner. AI applications, custom software, digital marketing, brand & design, DevOps. Five capabilities, one team.',
   },
-  twitter: { card: 'summary_large_image' },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Big Bold Tech',
+    description:
+      'Full-service technology partner. AI applications, custom software, digital marketing, brand & design, DevOps.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({
@@ -37,6 +77,9 @@ export default function RootLayout({
       className={`${dmSans.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <JsonLd data={buildOrganizationSchema()} />
+        <JsonLd data={buildWebSiteSchema()} />
+        <JsonLd data={buildLocalBusinessSchema()} />
         <Header />
         <main>{children}</main>
         <Footer />
