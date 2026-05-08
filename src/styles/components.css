@@ -158,6 +158,43 @@
   color: var(--text);
 }
 
+/* Buttons that sit on top of dark image-overlay sections (hero,
+   page-hero, case-hero) need light typography in BOTH themes since
+   the underlying tint is always dark. */
+.hero-bbt .btn-bbt.is-ghost,
+.page-hero:has(.page-hero-bg) .btn-bbt.is-ghost,
+.case-hero .btn-bbt.is-ghost {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.hero-bbt .btn-bbt.is-ghost:hover,
+.page-hero:has(.page-hero-bg) .btn-bbt.is-ghost:hover,
+.case-hero .btn-bbt.is-ghost:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* Secondary buttons over dark imagery — same treatment. */
+.hero-bbt .btn-bbt.is-secondary,
+.page-hero:has(.page-hero-bg) .btn-bbt.is-secondary,
+.case-hero .btn-bbt.is-secondary {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.hero-bbt .btn-bbt.is-secondary:hover,
+.page-hero:has(.page-hero-bg) .btn-bbt.is-secondary:hover,
+.case-hero .btn-bbt.is-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
 .btn-arrow {
   width: 14px;
   height: 14px;
