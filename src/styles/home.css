@@ -156,13 +156,14 @@
 
 .logostrip-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 20px 28px;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 20px 24px;
   align-items: center;
 }
 
-@media (max-width: 1100px) { .logostrip-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 600px)  { .logostrip-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1200px) { .logostrip-grid { grid-template-columns: repeat(5, 1fr); } }
+@media (max-width: 800px)  { .logostrip-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px)  { .logostrip-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .logostrip-cell {
   height: 32px;

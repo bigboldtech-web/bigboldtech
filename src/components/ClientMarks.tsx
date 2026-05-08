@@ -35,6 +35,32 @@ const Wordmark = ({
 )
 
 const marks: Record<ClientLogoId, () => React.ReactElement> = {
+  cashkr: () => (
+    <svg
+      viewBox="0 0 168 32"
+      role="img"
+      aria-label="Cashkr"
+      style={{ width: 'auto', height: '100%', maxWidth: '100%' }}
+    >
+      {/* Glyph: stacked bills hint + accent dot */}
+      <g transform="translate(0, 7)" fill="currentColor">
+        <rect x="2" y="3" width="22" height="11" rx="2.5" />
+        <rect x="0" y="6" width="26" height="11" rx="2.5" opacity="0.55" />
+      </g>
+      {/* Wordmark: 'Cash' in currentColor, 'kr' in brand cobalt */}
+      <text
+        x="34"
+        y="22"
+        fontFamily="var(--font-display, sans-serif)"
+        fontSize="16"
+        fontWeight="700"
+        letterSpacing="-0.01em"
+      >
+        <tspan fill="currentColor">Cash</tspan>
+        <tspan fill="#4A74FF">kr</tspan>
+      </text>
+    </svg>
+  ),
   'atlas-bank': () => (
     <Wordmark
       text="ATLAS BANK"

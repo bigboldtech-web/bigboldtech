@@ -1,12 +1,15 @@
 /**
- * Placeholder client logos for the LogoStrip module.
+ * Client logos for the LogoStrip module.
  *
- * IMPORTANT: All names are INVENTED. Replace with real, permissioned
- * logos before launch. Each `id` maps to an SVG mark in
- * @/components/ClientMarks.
+ * Some names below are PLACEHOLDER (`real: false`) — invented brands
+ * to be replaced with real, permissioned logos before launch.
+ * Cashkr is a real Big Bold Tech property and stays.
+ *
+ * Each `id` maps to an SVG mark in @/components/ClientMarks.
  */
 
 export type ClientLogoId =
+  | 'cashkr'
   | 'atlas-bank'
   | 'northwind'
   | 'meridian'
@@ -16,9 +19,17 @@ export type ClientLogoId =
   | 'lumen-co'
   | 'verge-health'
 
-export type ClientLogo = { id: ClientLogoId; name: string }
+export type ClientLogo = {
+  id: ClientLogoId
+  name: string
+  /** True if this is a real, permissioned logo. Used to find/keep
+   *  Cashkr (and future real clients) when the placeholders are
+   *  swapped out before launch. */
+  real?: boolean
+}
 
 export const placeholderClients: ClientLogo[] = [
+  { id: 'cashkr',       name: 'Cashkr', real: true },
   { id: 'atlas-bank',   name: 'Atlas Bank' },
   { id: 'northwind',    name: 'Northwind' },
   { id: 'meridian',     name: 'Meridian' },

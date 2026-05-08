@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
     'Enterprise technology agency specializing in AI, SaaS development, custom applications, performance marketing, and digital growth systems.',
   url: 'https://bigboldtech.com',
   email: 'contact@bigboldtech.com',
-  phone: '+91 000 000 0000',
+  phone: '+91 88288 33328',
   address: {
     country: 'IN',
   },
