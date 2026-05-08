@@ -123,20 +123,43 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="team-grid">
-            {team.map((m) => (
-              <article key={m.name} className="team-card">
-                {m.image && (
+            {team.map((m, i) => {
+              const initials = m.name
+                .split(' ')
+                .map((s) => s[0])
+                .slice(0, 2)
+                .join('')
+                .toUpperCase()
+              return (
+                <Reveal as="article" key={m.name} delay={i * 80} className="team-card">
                   <div className="team-photo">
-                    <Image src={m.image} alt={m.name} width={200} height={200} quality={80} />
+                    {m.image ? (
+                      <Image src={m.image} alt={m.name} width={240} height={240} quality={80} />
+                    ) : (
+                      <span className="team-photo-fallback" aria-hidden>{initials}</span>
+                    )}
                   </div>
-                )}
-                <div className="team-meta">
-                  <h3>{m.name}</h3>
-                  <p className="team-role">{m.role}</p>
-                  <p className="team-bio">{m.bio}</p>
-                </div>
-              </article>
-            ))}
+                  <div className="team-meta">
+                    <h3>{m.name}</h3>
+                    <p className="team-role">{m.role}</p>
+                    <p className="team-bio">{m.bio}</p>
+                    {m.linkedin && (
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="team-link"
+                      >
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43A2.07 2.07 0 1 1 5.34 3.3a2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+                        </svg>
+                        View on LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
         </Container>
       </Section>

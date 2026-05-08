@@ -1,42 +1,48 @@
 /**
- * IMPORTANT: All team members below are PLACEHOLDER.
- * Replace with real, permissioned profiles before launch.
+ * Team profiles. Names + LinkedIn URLs are real (taken from the
+ * profile slugs the team provided). Roles, bios, and photos are
+ * still PLACEHOLDER — fill in once the team approves their copy
+ * and gives permission for photo use.
+ *
+ * To add a real headshot:
+ *   1. Drop the file into /public/team/<filename>.jpg
+ *   2. Set `image: '/team/<filename>.jpg'`
+ *   Photos must be permissioned. Don't reuse LinkedIn images
+ *   without explicit consent — it's both a LinkedIn TOS issue
+ *   and a personality-rights issue in India.
  */
 
 export type TeamMember = {
   name: string
   role: string
   bio: string
+  /** Local public path or full URL. Optional — if missing, initials render. */
   image?: string
   linkedin?: string
+  /** Marks placeholder role/bio that still needs to be filled in */
+  placeholderCopy?: boolean
 }
-
-const a = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=400&h=400&q=80&bbt=v1`
 
 export const team: TeamMember[] = [
   {
-    name: 'Aanya Sharma',
-    role: 'Founder & CEO',
-    bio: '12 years building consumer + B2B products. Previously led product at two YC-backed fintechs.',
-    image: a('1438761681033-6461ffad8d80'),
+    name: 'Pranjal H.',
+    role: 'Founder',
+    bio: 'Pranjal leads Big Bold Tech end-to-end — from new-business conversations to product strategy and engineering oversight on every engagement.',
+    linkedin: 'https://www.linkedin.com/in/pranjal-h-70576a233/',
+    placeholderCopy: true,
   },
   {
-    name: 'Vikram Iyer',
-    role: 'Head of Engineering',
-    bio: 'Ex-staff engineer. Has shipped distributed systems at scale across two unicorns. Owns our infra + AI practice.',
-    image: a('1472099645785-5658abf4ff4e'),
+    name: 'Nirajan Bohara',
+    role: 'Engineering Lead',
+    bio: 'Nirajan owns the engineering bench across web, mobile, and AI work. He architects new builds, leads code review, and keeps shipped systems running reliably in production.',
+    linkedin: 'https://www.linkedin.com/in/nirajan-bohara-a97643237/',
+    placeholderCopy: true,
   },
   {
-    name: 'Sara Khan',
-    role: 'Head of Design',
-    bio: 'Brand + product design across fintech, retail, and SaaS. Believes design starts with copy and ends with motion.',
-    image: a('1494790108377-be9c29b29330'),
-  },
-  {
-    name: 'Arjun Mehta',
-    role: 'Head of Growth',
-    bio: 'Ran performance marketing at two D2C unicorns before joining. Obsessive about attribution and creative testing.',
-    image: a('1507003211169-0a1dd7228f2d'),
+    name: 'Bikesh Bhaila',
+    role: 'Design & Brand Lead',
+    bio: 'Bikesh leads brand, marketing, and product design across every Big Bold Tech engagement — from first wireframe to launch-ready visual system.',
+    linkedin: 'https://www.linkedin.com/in/bikesh-bhaila-a8b5251a9/',
+    placeholderCopy: true,
   },
 ]
