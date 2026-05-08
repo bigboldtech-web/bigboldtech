@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Logo } from './Logo'
 import { Button } from './Button'
+import { ThemeToggle } from './ThemeToggle'
 import { primaryNav } from '@/data/nav'
 import { cn } from '@/lib/utils'
 
@@ -60,10 +61,13 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="header-cta">
-          <Button href="/contact" size="sm" arrow>
-            Start a project
-          </Button>
+        <div className="header-actions">
+          <ThemeToggle />
+          <div className="header-cta">
+            <Button href="/contact" size="sm" arrow>
+              Start a project
+            </Button>
+          </div>
         </div>
 
         <button
@@ -91,6 +95,10 @@ export function Header() {
           <Button href="/contact" arrow className="mobile-cta">
             Start a project
           </Button>
+          <div className="mobile-theme-row">
+            <span>Appearance</span>
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </header>

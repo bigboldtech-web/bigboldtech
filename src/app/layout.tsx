@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '@/lib/constants'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { JsonLd } from '@/components/JsonLd'
+import { themeInitScript } from '@/components/ThemeToggle'
 import {
   buildOrganizationSchema,
   buildWebSiteSchema,
@@ -75,7 +76,15 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${dmSans.variable} ${plusJakarta.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          // Sets data-theme on <html> before any paint to prevent
+          // flash-of-wrong-theme. Reads localStorage + system pref.
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+      </head>
       <body>
         <JsonLd data={buildOrganizationSchema()} />
         <JsonLd data={buildWebSiteSchema()} />

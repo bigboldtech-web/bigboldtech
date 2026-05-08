@@ -2,8 +2,14 @@
 
 /* =============================================================
    Big Bold Tech — design tokens
+   Theme is selected on <html data-theme="dark|light">.
+   The runtime sets it based on stored pref + system preference;
+   the inline script in layout.tsx prevents flash-of-wrong-theme.
    ============================================================= */
-:root {
+
+/* ---------- Dark theme (default) ---------------------------- */
+:root,
+[data-theme="dark"] {
   /* surfaces */
   --bg:          #0A0E1A;
   --bg-2:        #0E1322;
@@ -26,16 +32,70 @@
   --brand-soft:   rgba(74, 116, 255, 0.12);
   --brand-deep:   #2D55F5;
 
-  /* accents (used sparingly) */
+  /* accents */
   --accent-success: #34D399;
   --accent-warn:    #FBBF24;
 
-  /* type */
+  /* contextual chrome — used by header/footer/cards in places
+     where the surface should feel different from `--surface` */
+  --header-bg:           rgba(10, 14, 26, 0.65);
+  --header-bg-scrolled:  rgba(10, 14, 26, 0.86);
+  --footer-bg:           #0E1322;
+  --code-bg:             rgba(154, 182, 255, 0.06);
+
+  /* image-tint overlays — kept dark in both themes since they
+     sit on top of photography */
+  --image-tint-strong: linear-gradient(180deg, rgba(10, 14, 26, 0.86) 0%, rgba(10, 14, 26, 0.96) 100%);
+  --image-tint-soft:   linear-gradient(180deg, rgba(10, 14, 26, 0.78) 0%, rgba(10, 14, 26, 0.92) 100%);
+  --image-glow:        radial-gradient(circle at 70% 0%, rgba(74, 116, 255, 0.45), transparent 55%);
+}
+
+/* ---------- Light theme ------------------------------------- */
+[data-theme="light"] {
+  /* surfaces — warm-cool whites with cool-grey panels */
+  --bg:          #F7F8FB;
+  --bg-2:        #EEF1F7;
+  --surface:     #FFFFFF;
+  --surface-2:   #F2F4FA;
+
+  /* borders */
+  --border:        rgba(15, 30, 70, 0.08);
+  --border-strong: rgba(15, 30, 70, 0.18);
+
+  /* text */
+  --text:        #0B1126;
+  --text-muted:  #4A5476;
+  --text-dim:    #6F7896;
+  --text-faint:  #A6ADC4;
+
+  /* brand — same blues, but bumped for AA contrast on light */
+  --brand:        #2D55F5;
+  --brand-bright: #4A74FF;
+  --brand-soft:   rgba(74, 116, 255, 0.10);
+  --brand-deep:   #1E3FD1;
+
+  /* accents */
+  --accent-success: #15803D;
+  --accent-warn:    #B45309;
+
+  /* contextual chrome */
+  --header-bg:           rgba(247, 248, 251, 0.72);
+  --header-bg-scrolled:  rgba(247, 248, 251, 0.92);
+  --footer-bg:           #EEF1F7;
+  --code-bg:             rgba(15, 30, 70, 0.04);
+
+  /* image tints stay dark — overlays sit on photography, not page */
+  --image-tint-strong: linear-gradient(180deg, rgba(11, 17, 38, 0.7) 0%, rgba(11, 17, 38, 0.9) 100%);
+  --image-tint-soft:   linear-gradient(180deg, rgba(11, 17, 38, 0.55) 0%, rgba(11, 17, 38, 0.78) 100%);
+  --image-glow:        radial-gradient(circle at 70% 0%, rgba(74, 116, 255, 0.45), transparent 55%);
+}
+
+/* ---------- Type ------------------------------------------- */
+:root {
   --font-display: var(--font-plus-jakarta, system-ui, sans-serif);
   --font-body:    var(--font-dm-sans, system-ui, sans-serif);
   --font-mono:    var(--font-jetbrains-mono, ui-monospace, monospace);
 
-  /* metrics */
   --max-w: 1280px;
   --pad: clamp(20px, 4vw, 48px);
   --radius:    14px;
@@ -50,7 +110,13 @@ html {
   scroll-behavior: smooth;
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
+  /* announce both schemes so user-agent UI (form controls, scrollbars)
+     adopts the right look automatically */
+  color-scheme: dark light;
 }
+
+[data-theme="light"] { color-scheme: light; }
+[data-theme="dark"]  { color-scheme: dark; }
 
 body {
   background: var(--bg);
@@ -64,6 +130,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
 }
 
 main { flex: 1 0 auto; }

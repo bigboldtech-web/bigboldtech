@@ -201,7 +201,7 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  background: rgba(10, 14, 26, 0.65);
+  background: var(--header-bg);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   border-bottom: 1px solid transparent;
@@ -209,7 +209,7 @@
 }
 
 .header-bbt.is-scrolled {
-  background: rgba(10, 14, 26, 0.86);
+  background: var(--header-bg-scrolled);
   border-bottom-color: var(--border);
 }
 
@@ -221,6 +221,12 @@
   padding: 14px var(--pad);
   max-width: var(--max-w);
   margin: 0 auto;
+}
+
+.header-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .primary-nav ul {
@@ -252,6 +258,62 @@
 }
 
 .header-cta { display: inline-flex; }
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  background: var(--code-bg);
+  border-color: var(--border-strong);
+}
+
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.25s var(--ease), transform 0.35s var(--ease);
+}
+
+.theme-toggle .theme-toggle-sun,
+.theme-toggle .theme-toggle-moon {
+  position: absolute;
+}
+
+/* In dark theme, show the sun (you'd toggle to light). In light theme, show moon. */
+[data-theme="dark"]  .theme-toggle .theme-toggle-sun  { opacity: 1; transform: rotate(0deg) scale(1); }
+[data-theme="dark"]  .theme-toggle .theme-toggle-moon { opacity: 0; transform: rotate(40deg) scale(0.6); }
+[data-theme="light"] .theme-toggle .theme-toggle-sun  { opacity: 0; transform: rotate(-40deg) scale(0.6); }
+[data-theme="light"] .theme-toggle .theme-toggle-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+.mobile-theme-row {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mobile-theme-row span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
 
 /* burger (mobile) */
 .burger {
@@ -323,13 +385,13 @@
 @media (max-width: 900px) {
   .primary-nav,
   .header-cta { display: none; }
-  .header-inner { grid-template-columns: auto 1fr auto; }
+  .header-inner { grid-template-columns: auto 1fr auto auto; }
   .burger { display: inline-flex; align-items: center; justify-content: center; }
 }
 
 /* ---------- Footer ----------------------------------------- */
 .footer-bbt {
-  background: var(--bg-2);
+  background: var(--footer-bg);
   border-top: 1px solid var(--border);
   margin-top: auto;
 }

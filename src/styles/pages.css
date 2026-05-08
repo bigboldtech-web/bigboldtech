@@ -23,10 +23,13 @@
 .page-hero-tint {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(10, 14, 26, 0.82) 0%, rgba(10, 14, 26, 0.95) 100%),
-    radial-gradient(circle at 80% 0%, rgba(74, 116, 255, 0.32), transparent 55%);
+  background: var(--image-tint-strong), var(--image-glow);
 }
+
+/* When a page-hero has a background image, text sits on the dark
+   tint — lock typography to light values regardless of theme. */
+.page-hero:has(.page-hero-bg) .page-hero-title { color: #FFFFFF; }
+.page-hero:has(.page-hero-bg) .page-hero-desc  { color: rgba(255, 255, 255, 0.78); }
 
 .page-hero-grid {
   position: absolute;
@@ -375,11 +378,11 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text);
+  color: #FFFFFF;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   padding: 6px 12px;
 }
@@ -477,9 +480,18 @@
 .case-hero-tint {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(10, 14, 26, 0.86) 0%, rgba(10, 14, 26, 0.96) 100%),
-    radial-gradient(circle at 75% 0%, rgba(74, 116, 255, 0.32), transparent 55%);
+  background: var(--image-tint-strong), var(--image-glow);
+}
+
+/* Case-hero text sits on the dark photo tint — locked light */
+.case-hero .case-hero-title { color: #FFFFFF; }
+.case-hero .case-hero-summary { color: rgba(255, 255, 255, 0.78); }
+.case-hero .case-back { color: rgba(255, 255, 255, 0.7); }
+.case-hero .case-back:hover { color: var(--brand-bright); }
+.case-hero .case-hero-tags span {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .case-hero-meta {
