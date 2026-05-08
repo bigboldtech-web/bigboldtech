@@ -1182,6 +1182,29 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.contact-counter {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Honeypot — visually hidden but available to bots that parse the DOM */
+.contact-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .contact-field input,

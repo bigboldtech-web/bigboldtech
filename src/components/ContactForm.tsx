@@ -30,9 +30,12 @@ const timelines = [
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
+const MESSAGE_MAX = 5000
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
+  const [messageLen, setMessageLen] = useState(0)
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -54,6 +57,7 @@ export function ContactForm() {
       }
       setStatus('success')
       form.reset()
+      setMessageLen(0)
     } catch (err) {
       setStatus('error')
       setError(err instanceof Error ? err.message : 'Something went wrong.')
@@ -123,17 +127,34 @@ export function ContactForm() {
       </div>
 
       <label className="contact-field">
-        <span>Tell us about the project *</span>
+        <span>
+          Tell us about the project *
+          <span className="contact-counter" aria-live="polite">
+            {messageLen} / {MESSAGE_MAX}
+          </span>
+        </span>
         <textarea
           name="message"
           required
           rows={6}
+          maxLength={MESSAGE_MAX}
+          onChange={(e) => setMessageLen(e.currentTarget.value.length)}
           placeholder="What are you building? What's the problem you're trying to solve? Any deadlines or constraints we should know about?"
         />
       </label>
 
+      {/* Honeypot — hidden from real users, bots fill it */}
+      <input
+        type="text"
+        name="_honeypot"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="contact-honeypot"
+      />
+
       {status === 'error' && error && (
-        <p className="contact-form-error">{error}</p>
+        <p className="contact-form-error" role="alert">{error}</p>
       )}
 
       <div className="contact-form-actions">
