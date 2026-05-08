@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
+import { Reveal } from '@/components/Reveal'
 import { services } from '@/data/services'
 
 const icons: Record<string, string> = {
@@ -31,8 +32,9 @@ export function ServicesPreview() {
         </div>
 
         <div className="services-grid">
-          {services.map((s) => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="service-card">
+          {services.map((s, i) => (
+            <Reveal key={s.slug} delay={(i % 3) * 80}>
+            <Link href={`/services/${s.slug}`} className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <path d={icons[s.slug]} />
@@ -49,6 +51,7 @@ export function ServicesPreview() {
                 </svg>
               </span>
             </Link>
+            </Reveal>
           ))}
         </div>
       </Container>

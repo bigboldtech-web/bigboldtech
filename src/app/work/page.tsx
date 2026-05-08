@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { PageHero } from '@/components/PageHero'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
+import { Reveal } from '@/components/Reveal'
+import { CountUp } from '@/components/CountUp'
 import { ContactCTA } from '@/components/home/ContactCTA'
 import { caseStudies } from '@/data/work'
 
@@ -25,8 +27,9 @@ export default function WorkIndexPage() {
       <Section size="lg">
         <Container>
           <div className="work-grid">
-            {caseStudies.map((c) => (
-              <Link key={c.slug} href={`/work/${c.slug}`} className="work-card">
+            {caseStudies.map((c, i) => (
+              <Reveal key={c.slug} delay={(i % 2) * 60}>
+              <Link href={`/work/${c.slug}`} className="work-card">
                 <div className="work-image">
                   <Image
                     src={c.image}
@@ -48,7 +51,7 @@ export default function WorkIndexPage() {
                   <ul className="work-metrics">
                     {c.metrics.slice(0, 3).map((m) => (
                       <li key={m.label}>
-                        <strong>{m.value}</strong>
+                        <strong><CountUp value={m.value} /></strong>
                         <span>{m.label}</span>
                       </li>
                     ))}
@@ -61,6 +64,7 @@ export default function WorkIndexPage() {
                   </span>
                 </div>
               </Link>
+              </Reveal>
             ))}
           </div>
         </Container>

@@ -1,6 +1,7 @@
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
+import { Reveal } from '@/components/Reveal'
 import { processSteps } from '@/data/process'
 
 export function Process() {
@@ -19,8 +20,8 @@ export function Process() {
         </div>
 
         <ol className="process-grid">
-          {processSteps.map((s) => (
-            <li key={s.num} className="process-step">
+          {processSteps.map((s, i) => (
+            <Reveal as="li" key={s.num} delay={i * 100} className="process-step">
               <div className="process-num">{s.num}</div>
               <div className="process-meta">
                 <span className="process-phase">{s.phase}</span>
@@ -28,7 +29,7 @@ export function Process() {
               </div>
               <h3 className="h3-bbt">{s.title}</h3>
               <p>{s.body}</p>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </Container>

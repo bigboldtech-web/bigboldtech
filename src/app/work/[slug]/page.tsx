@@ -6,6 +6,8 @@ import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
 import { Button } from '@/components/Button'
+import { Reveal } from '@/components/Reveal'
+import { CountUp } from '@/components/CountUp'
 import { ContactCTA } from '@/components/home/ContactCTA'
 import { caseStudies, getCaseStudy } from '@/data/work'
 
@@ -76,11 +78,13 @@ export default async function CaseStudyPage({ params }: Props) {
       <Section size="md" bg="panel">
         <Container>
           <ul className="case-metrics">
-            {c.metrics.map((m) => (
-              <li key={m.label}>
-                <div className="case-metric-num">{m.value}</div>
+            {c.metrics.map((m, i) => (
+              <Reveal as="li" key={m.label} delay={i * 100}>
+                <div className="case-metric-num">
+                  <CountUp value={m.value} />
+                </div>
                 <div className="case-metric-label">{m.label}</div>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </Container>

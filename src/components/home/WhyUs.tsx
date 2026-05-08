@@ -1,6 +1,7 @@
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
+import { Reveal } from '@/components/Reveal'
 import { whyUsPillars } from '@/data/whyus'
 
 export function WhyUs() {
@@ -15,8 +16,8 @@ export function WhyUs() {
         </div>
 
         <div className="whyus-grid">
-          {whyUsPillars.map((p) => (
-            <article key={p.title} className="whyus-card">
+          {whyUsPillars.map((p, i) => (
+            <Reveal as="article" key={p.title} delay={i * 80} className="whyus-card">
               <div className="whyus-icon" aria-hidden>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <path d={p.iconPath} />
@@ -24,7 +25,7 @@ export function WhyUs() {
               </div>
               <h3 className="h3-bbt">{p.title}</h3>
               <p>{p.body}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </Container>

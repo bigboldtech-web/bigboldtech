@@ -6,9 +6,10 @@ import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
 import { Button } from '@/components/Button'
+import { CountUp } from '@/components/CountUp'
 import { ContactCTA } from '@/components/home/ContactCTA'
 import { industries } from '@/data/industries'
-import { caseStudies, getCaseStudy } from '@/data/work'
+import { getCaseStudy } from '@/data/work'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -96,7 +97,7 @@ export default async function IndustryDetailPage({ params }: Props) {
                 <ul className="featured-metrics">
                   {featuredCase.metrics.slice(0, 3).map((m) => (
                     <li key={m.label}>
-                      <strong>{m.value}</strong>
+                      <strong><CountUp value={m.value} /></strong>
                       <span>{m.label}</span>
                     </li>
                   ))}

@@ -4,6 +4,8 @@ import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
 import { Button } from '@/components/Button'
+import { Reveal } from '@/components/Reveal'
+import { CountUp } from '@/components/CountUp'
 import { featuredWork } from '@/data/work'
 
 export function FeaturedWork() {
@@ -21,8 +23,9 @@ export function FeaturedWork() {
         </div>
 
         <div className="featured-grid">
-          {featuredWork.map((c) => (
-            <Link key={c.slug} href={`/work/${c.slug}`} className="featured-card">
+          {featuredWork.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 80}>
+            <Link href={`/work/${c.slug}`} className="featured-card">
               <div className="featured-image">
                 <Image
                   src={c.image}
@@ -43,7 +46,7 @@ export function FeaturedWork() {
                 <ul className="featured-metrics">
                   {c.metrics.map((m) => (
                     <li key={m.label}>
-                      <strong>{m.value}</strong>
+                      <strong><CountUp value={m.value} /></strong>
                       <span>{m.label}</span>
                     </li>
                   ))}
@@ -57,6 +60,7 @@ export function FeaturedWork() {
                 </span>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </Container>

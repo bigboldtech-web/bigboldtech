@@ -4,7 +4,8 @@ import { PageHero } from '@/components/PageHero'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
-import { Button } from '@/components/Button'
+import { CountUp } from '@/components/CountUp'
+import { Reveal } from '@/components/Reveal'
 import { ContactCTA } from '@/components/home/ContactCTA'
 import { team } from '@/data/team'
 import { headlineStats } from '@/data/stats'
@@ -80,10 +81,12 @@ export default function AboutPage() {
         <Container>
           <ul className="stats-band-grid">
             {headlineStats.map((s, i) => (
-              <li key={i} className="stat-cell">
-                <div className="stat-num">{s.value}</div>
+              <Reveal as="li" key={i} delay={i * 80} className="stat-cell">
+                <div className="stat-num">
+                  <CountUp value={s.value} />
+                </div>
                 <div className="stat-label">{s.label}</div>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </Container>

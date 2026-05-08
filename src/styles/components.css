@@ -315,6 +315,29 @@
   color: var(--text-faint);
 }
 
+/* ---------- Reveal ----------------------------------------- */
+.reveal-bbt {
+  opacity: 0;
+  transform: translateY(var(--reveal-offset, 16px));
+  transition:
+    opacity 0.6s var(--ease) var(--reveal-delay, 0ms),
+    transform 0.6s var(--ease) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-bbt.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-bbt {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* burger (mobile) */
 .burger {
   display: none;

@@ -4,6 +4,7 @@ import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
 import { Button } from '@/components/Button'
+import { Reveal } from '@/components/Reveal'
 import { industries } from '@/data/industries'
 
 export function IndustriesGrid() {
@@ -21,8 +22,9 @@ export function IndustriesGrid() {
         </div>
 
         <div className="industries-grid">
-          {industries.map((ind) => (
-            <Link key={ind.slug} href={`/industries/${ind.slug}`} className="industry-card">
+          {industries.map((ind, i) => (
+            <Reveal key={ind.slug} delay={(i % 3) * 80}>
+            <Link href={`/industries/${ind.slug}`} className="industry-card">
               <div className="industry-image">
                 <Image
                   src={ind.image}
@@ -38,6 +40,7 @@ export function IndustriesGrid() {
                 <p>{ind.tagline}</p>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
       </Container>

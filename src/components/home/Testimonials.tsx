@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { Section } from '@/components/Section'
 import { Eyebrow } from '@/components/Eyebrow'
+import { Reveal } from '@/components/Reveal'
 import { testimonials } from '@/data/testimonials'
 
 export function Testimonials() {
@@ -17,8 +18,9 @@ export function Testimonials() {
         </div>
 
         <div className="testimonials-grid">
-          {items.map((t) => (
-            <figure key={t.author + t.company} className="testimonial-card">
+          {items.map((t, i) => (
+            <Reveal as="div" key={t.author + t.company} delay={i * 80}>
+            <figure className="testimonial-card">
               <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
               <figcaption>
                 <div className="testimonial-avatar">
@@ -36,6 +38,7 @@ export function Testimonials() {
                 </div>
               </figcaption>
             </figure>
+            </Reveal>
           ))}
         </div>
       </Container>
