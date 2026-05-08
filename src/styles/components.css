@@ -553,3 +553,64 @@
 }
 
 .footer-social a:hover { color: var(--text); }
+
+/* =============================================================
+   Card hover polish — soft cobalt glow on every card surface.
+   These rules tag in on top of existing per-card styles.
+   ============================================================= */
+.featured-card,
+.service-card,
+.industry-card,
+.work-card,
+.whyus-card,
+.testimonial-card,
+.team-card,
+.process-step,
+.belief-card,
+.service-detail-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.featured-card::before,
+.service-card::before,
+.industry-card::before,
+.work-card::before,
+.whyus-card::before,
+.testimonial-card::before,
+.team-card::before,
+.process-step::before,
+.belief-card::before,
+.service-detail-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at 50% 0%,
+    rgba(74, 116, 255, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.featured-card:hover::before,
+.service-card:hover::before,
+.industry-card:hover::before,
+.work-card:hover::before,
+.whyus-card:hover::before,
+.testimonial-card:hover::before,
+.team-card:hover::before,
+.process-step:hover::before,
+.belief-card:hover::before,
+.service-detail-card:hover::before {
+  opacity: 1;
+}
+
+/* Industry cards have absolute children so the ::before needs the
+   image-tint to sit above it */
+.industry-card { z-index: 1; }
+.industry-image, .industry-body { z-index: 2; }
