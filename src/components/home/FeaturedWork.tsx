@@ -24,7 +24,7 @@ export function FeaturedWork() {
 
         <div className="featured-grid">
           {featuredWork.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 80}>
+            <Reveal key={c.slug} delay={i * 80} className="reveal-cell">
             <Link href={`/work/${c.slug}`} className="featured-card">
               <div className="featured-image">
                 <Image

@@ -23,7 +23,7 @@ export function IndustriesGrid() {
 
         <div className="industries-grid">
           {industries.map((ind, i) => (
-            <Reveal key={ind.slug} delay={(i % 3) * 80}>
+            <Reveal key={ind.slug} delay={(i % 3) * 80} className="reveal-cell">
             <Link href={`/industries/${ind.slug}`} className="industry-card">
               <div className="industry-image">
                 <Image

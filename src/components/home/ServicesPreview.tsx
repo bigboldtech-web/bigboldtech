@@ -33,7 +33,7 @@ export function ServicesPreview() {
 
         <div className="services-grid">
           {services.map((s, i) => (
-            <Reveal key={s.slug} delay={(i % 3) * 80}>
+            <Reveal key={s.slug} delay={(i % 3) * 80} className="reveal-cell">
             <Link href={`/services/${s.slug}`} className="service-card">
               <div className="service-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">

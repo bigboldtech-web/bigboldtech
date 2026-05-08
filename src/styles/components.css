@@ -330,6 +330,25 @@
   transform: translateY(0);
 }
 
+/* When Reveal wraps a card-style child (Link/figure), the wrapper
+   itself is the grid cell — it must be a block container with no
+   chrome of its own, and the child must fill it so hover transforms
+   on the inner card still work in their grid box. */
+.reveal-cell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.reveal-cell > a,
+.reveal-cell > figure,
+.reveal-cell > article,
+.reveal-cell > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-bbt {
     opacity: 1;

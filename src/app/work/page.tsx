@@ -28,7 +28,7 @@ export default function WorkIndexPage() {
         <Container>
           <div className="work-grid">
             {caseStudies.map((c, i) => (
-              <Reveal key={c.slug} delay={(i % 2) * 60}>
+              <Reveal key={c.slug} delay={(i % 2) * 60} className="reveal-cell">
               <Link href={`/work/${c.slug}`} className="work-card">
                 <div className="work-image">
                   <Image

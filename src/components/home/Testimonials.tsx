@@ -19,7 +19,7 @@ export function Testimonials() {
 
         <div className="testimonials-grid">
           {items.map((t, i) => (
-            <Reveal as="div" key={t.author + t.company} delay={i * 80}>
+            <Reveal as="div" key={t.author + t.company} delay={i * 80} className="reveal-cell">
             <figure className="testimonial-card">
               <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
               <figcaption>
